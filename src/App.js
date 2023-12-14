@@ -8,6 +8,7 @@ import { ConnectedRouter as Router } from 'connected-react-router';
 import { history } from './redux';
 import { path } from './constant/constant';
 import Home from './Home/Home';
+import Menu from './Menu/Menu';
 
 
 
@@ -21,6 +22,8 @@ const App = () => {
         <Switch>
           {/* <Route path={path.HOME} exact component={userIsAuthenticated(Home)} /> */}
           <Route path={path.HOME} exact component={(Home)} />
+          <Route path={path.MENU} component={(Menu)} />
+
 
 
 

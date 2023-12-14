@@ -2,22 +2,20 @@
     border-style: solid;
     border-color: red;
     border-width: 1px;
-    width: 99%;
-    height: 1000px;
+    width: 100%;
+    height: 1300px;
     display: flex;
     flex-direction: column;
-
 
     .Home-header {
         border-style: solid;
         border-color: red;
         border-width: 1px;
         width: 100%;
-        height: auto;
+        height: 300px;
         display: flex;
         flex-direction: column;
 
-        // background-color: #242526;
     }
 
     .Home-content {
@@ -25,153 +23,65 @@
         border-color: red;
         border-width: 1px;
         width: 100%;
-        height: 90%;
-
+        height: 100%;
         display: flex;
-        // background-color: #18191a;
+        flex-direction: column;
 
-
-
-        .Home-content-group {
+        .Home-content-up {
             border-style: solid;
             border-color: red;
             border-width: 1px;
-            width: 25%;
-            height: 100%;
-        }
+            width: 100%;
+            height: 50%;
+            display: flex;
 
-        .Home-content-content {
-            border-style: solid;
-            border-color: red;
-            border-width: 1px;
-            width: 40%;
-            height: 100%;
-            margin-left: 5%;
-            margin-right: 5%;
-            // display: flex;
-            flex-direction: column;
 
-            overflow-y: scroll;
-
-            .Home-content-content-div {
+            .Home-content-up-new {
                 border-style: solid;
                 border-color: red;
                 border-width: 1px;
-                width: 99%;
-                height: 700px;
+                width: 60%;
+                height: 100%;
                 display: flex;
                 flex-direction: column;
-
-                margin-top: 20px;
-
-
-
-                .Home-content-content-div-name {
-                    border-style: solid;
-                    border-color: red;
-                    border-width: 1px;
-                    width: 100%;
-                    height: 10%;
-                    display: flex;
-                    flex-direction: column;
-
-                    .Home-content-content-div-name-name {
-                        border-style: solid;
-                        border-color: red;
-                        border-width: 1px;
-                        width: 100%;
-                        height: 50%;
-                        display: flex;
-                    }
-
-                    .Home-content-content-div-name-status {
-                        border-style: solid;
-                        border-color: red;
-                        border-width: 1px;
-                        width: 100%;
-                        height: 50%;
-                        display: flex;
-                    }
-                }
-
-                .Home-content-content-div-image {
-                    border-style: solid;
-                    border-color: red;
-                    border-width: 1px;
-                    width: 100%;
-                    height: 70%;
-                    display: flex;
-                    flex-direction: column;
-
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                }
-
-                .Home-content-content-div-comment {
-                    border-style: solid;
-                    border-color: red;
-                    border-width: 1px;
-                    width: 100%;
-                    height: 20%;
-                    display: flex;
-                    flex-direction: column;
-                }
-
             }
 
-
+            .Home-content-up-like {
+                border-style: solid;
+                border-color: red;
+                border-width: 1px;
+                width: 40%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
         }
 
-        .Home-content-message {
+        .Home-content-down {
             border-style: solid;
             border-color: red;
             border-width: 1px;
-            width: 25%;
-            height: 100%;
+            width: 100%;
+            height: 50%;
             display: flex;
             flex-direction: column;
-
-
-            .Home-content-message-qc {
-                border-style: solid;
-                border-color: red;
-                border-width: 1px;
-                width: 100%;
-                height: 30%;
-            }
-
-            .Home-content-message-message {
-                border-style: solid;
-                border-color: red;
-                border-width: 1px;
-                width: 100%;
-                height: 70%;
-                // display: flex;
-                flex-direction: column;
-                overflow-y: scroll;
-
-                .Home-content-message-message-list {
-                    border-style: solid;
-                    border-color: red;
-                    border-width: 1px;
-                    width: 99%;
-                    height: 40px;
-
-                    margin-top: 5px;
-                    margin-bottom: 5px;
-
-                    cursor: pointer;
-
-                    &:hover {
-                        opacity: 0.5;
-                    }
-
-                    &:active {
-                        background-color: green;
-                    }
-
-                }
-            }
         }
+
+
+
     }
+
+    .Home-footer {
+        border-style: solid;
+        border-color: red;
+        border-width: 1px;
+        width: 100%;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+
+
 }

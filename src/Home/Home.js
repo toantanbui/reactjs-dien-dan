@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 
 import * as actions from '../store/actions';
-import '../css/Home/Home.css'
+import '../css/Home/Home.css';
+import Menu from '../Menu/Menu';
 
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -42,26 +43,17 @@ const Home = () => {
     return (
         <div className='Home'>
             <div className='Home-header'>
-
-
+                <Menu />
             </div>
             <div className='Home-content'>
-                <div className='Home-content-group'> Hi xin chào</div>
-                <div className='Home-content-content'>
-
-
-
-
-
-
+                <div className='Home-content-up'>
+                    <div className='Home-content-up-new'></div>
+                    <div className='Home-content-up-like'></div>
                 </div>
-                <div className='Home-content-message'>
-                    <div className='Home-content-message-qc'></div>
-                    <div className='Home-content-message-message'>
-
-                    </div>
-                </div>
+                <div className='Home-content-down'></div>
             </div>
+            <div className='Home-footer'></div>
+
         </div>
     );
 }
