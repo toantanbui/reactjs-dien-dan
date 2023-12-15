@@ -5,7 +5,8 @@
   width: 100%;
   height: 300px;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  background-color: #2196f3; }
   .Menu .Menu-top {
     border-style: solid;
     border-color: red;
@@ -13,26 +14,45 @@
     width: 100%;
     height: 80%;
     display: flex;
-    flex-direction: column; }
+    justify-content: space-between; }
+    .Menu .Menu-top .Menu-top-icon {
+      border-style: solid;
+      border-color: red;
+      border-width: 1px;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      background-color: #f8f9fa;
+      margin-top: 5%; }
+    .Menu .Menu-top .Menu-top-search {
+      border-style: solid;
+      border-color: red;
+      border-width: 1px;
+      width: 250px;
+      height: 50px;
+      display: flex;
+      background-color: #f8f9fa;
+      margin-top: 6%; }
   .Menu .Menu-bottom {
     border-style: solid;
     border-color: red;
     border-width: 1px;
     width: 100%;
     height: 20%;
-    display: flex; }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
     .Menu .Menu-bottom .Menu-bottom-option {
       border-style: solid;
       border-color: red;
       border-width: 1px;
-      width: 80%;
+      width: auto;
       height: 100%;
-      display: flex;
-      margin-left: 20px; }
+      display: flex; }
     .Menu .Menu-bottom .Menu-bottom-dkdn {
       border-style: solid;
       border-color: red;
       border-width: 1px;
-      width: 15%;
+      width: auto;
       height: 100%;
       display: flex; }

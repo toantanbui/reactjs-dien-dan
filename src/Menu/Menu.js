@@ -17,7 +17,11 @@ const Menu = () => {
 
     return (
         <div className='Menu'>
-            <div className='Menu-top'></div>
+            <div className='Menu-top'>
+                <div className='Menu-top-icon'></div>
+                <div className='Menu-top-search'></div>
+
+            </div>
             <div className='Menu-bottom'>
                 <div className='Menu-bottom-option'>
 
