@@ -19,7 +19,11 @@ const Menu = () => {
         <div className='Menu'>
             <div className='Menu-top'>
                 <div className='Menu-top-icon'></div>
-                <div className='Menu-top-search'></div>
+                <div className='Menu-top-search'>
+                    <i className="fas fa-search"></i>
+                    <input placeholder='tìm kiếm' />
+
+                </div>
 
             </div>
             <div className='Menu-bottom'>
