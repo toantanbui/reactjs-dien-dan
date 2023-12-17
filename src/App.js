@@ -9,6 +9,7 @@ import { history } from './redux';
 import { path } from './constant/constant';
 import Home from './Home/Home';
 import Menu from './Menu/Menu';
+import Footer from './Footer/Footer';
 
 
 
@@ -23,6 +24,8 @@ const App = () => {
           {/* <Route path={path.HOME} exact component={userIsAuthenticated(Home)} /> */}
           <Route path={path.HOME} exact component={(Home)} />
           <Route path={path.MENU} component={(Menu)} />
+          <Route path={path.FOOTER} component={(Footer)} />
+
 
 
 

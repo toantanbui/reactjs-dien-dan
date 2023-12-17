@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from '../store/actions';
 import '../css/Home/Home.css';
 import Menu from '../Menu/Menu';
+import Footer from '../Footer/Footer';
 
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -207,7 +208,9 @@ const Home = () => {
 
                 </div>
             </div>
-            <div className='Home-footer'></div>
+            <div className='Home-footer'>
+                <Footer />
+            </div>
 
         </div>
     );

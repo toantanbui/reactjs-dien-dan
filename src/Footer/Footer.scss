@@ -1,0 +1,43 @@
+.Footer {
+    border-style: solid;
+    border-color: red;
+    border-width: 1px;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    background-color: #2f66b9;
+
+    .Footer-abc {
+        border-style: solid;
+        border-color: red;
+        border-width: 1px;
+        width: 33.3%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .Footer-abc-title {
+            border-style: solid;
+            border-color: red;
+            border-width: 1px;
+            width: auto;
+            height: 10%;
+            display: flex;
+            margin: 5%;
+            color: #ffffff;
+        }
+
+        .Footer-abc-content {
+            border-style: solid;
+            border-color: red;
+            border-width: 1px;
+            width: 40%;
+            height: 20%;
+            display: flex;
+            color: #9bcbe7;
+        }
+
+    }
+
+}
