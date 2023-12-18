@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import * as actions from '../store/actions';
 import '../css/Menu/Menu.css';
+import Login from '../Login/Login';
 
 
 
@@ -15,6 +16,15 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const Menu = () => {
 
+    let [isOpenLogin, setisOpenLogin] = useState(false)
+
+    const handleIsOpenLogin = () => {
+        setisOpenLogin(true)
+    }
+
+    const handleToggle = () => {
+        setisOpenLogin(false)
+    }
     return (
         <div className='Menu'>
             <div className='Menu-top'>
@@ -28,13 +38,20 @@ const Menu = () => {
             </div>
             <div className='Menu-bottom'>
                 <div className='Menu-bottom-option'>
+                    <Login
+                        isOpen={isOpenLogin}
+                        toggle={handleToggle}
 
+                    />
                     <button type="button" class="btn btn-light">Diễn đàn</button>
                     <button type="button" class="btn btn-light">Đăng bài</button>
                     <button type="button" class="btn btn-light">Story</button>
                 </div>
                 <div className='Menu-bottom-dkdn'>
-                    <button type="button" class="btn btn-light">Đăng nhập</button>
+                    <button type="button" class="btn btn-light"
+                        onClick={() => { handleIsOpenLogin() }}
+
+                    >Đăng nhập</button>
                     <button type="button" class="btn btn-light">Đăng kí</button>
 
                 </div>
