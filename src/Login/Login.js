@@ -39,13 +39,13 @@ const Login = (props) => {
                 <form>
 
                     <div className="form-group">
-                        <label for="inputAddress">Email</label>
+                        <label htmlFor="inputAddress">Email</label>
                         <input type="text" className="form-control" id="inputAddress2" placeholder="Email"
 
                         />
                     </div>
                     <div className="form-group">
-                        <label for="inputAddress">Mật khẩu</label>
+                        <label htmlFor="inputAddress">Mật khẩu</label>
                         <input type="text" className="form-control" id="inputPassword" placeholder="Mật khẩu"
 
                         />
