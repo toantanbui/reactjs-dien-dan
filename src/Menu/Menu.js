@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 
 import * as actions from '../store/actions';
-import '../css/Menu/Menu.css';
+import '../assets/css/Menu.css';
 import Login from '../Login/Login';
-
+import logoHeader from '../assets/images/logo-header.png';
 
 
 
@@ -26,13 +26,14 @@ const Menu = () => {
         setisOpenLogin(false)
     }
     return (
-        <div className='Menu'>
+        <div className='Menu' >
             <div className='Menu-top'>
-                <div className='Menu-top-icon'></div>
+                <a href='#'>
+                    <img className='Menu-top-icon' src={logoHeader} alt='TONY FORUM' />
+                </a>
                 <div className='Menu-top-search'>
-                    <i className="fas fa-search"></i>
-                    <input placeholder='tìm kiếm' />
-
+                    <input className="search-input" placeholder='Tìm kiếm' />
+                    <i className="fas fa-search search-icon"></i>
                 </div>
 
             </div>
@@ -43,16 +44,16 @@ const Menu = () => {
                         toggle={handleToggle}
 
                     />
-                    <button type="button" class="btn btn-light">Diễn đàn</button>
-                    <button type="button" class="btn btn-light">Đăng bài</button>
-                    <button type="button" class="btn btn-light">Story</button>
+                    <button type="button" className="btn btn-light mr-3">Thảo luận</button>
+                    <button type="button" className="btn btn-light mr-3">Bài viết</button>
+                    <button type="button" className="btn btn-light mr-3">Đăng bài</button>
                 </div>
                 <div className='Menu-bottom-dkdn'>
-                    <button type="button" class="btn btn-light"
+                    <button type="button" className="btn btn-light mr-3"
                         onClick={() => { handleIsOpenLogin() }}
 
                     >Đăng nhập</button>
-                    <button type="button" class="btn btn-light">Đăng kí</button>
+                    <button type="button" className="btn btn-light">Đăng kí</button>
 
                 </div>
             </div>

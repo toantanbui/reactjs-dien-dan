@@ -1,95 +1,88 @@
+$background-color_1: #354351;
+$background-color_2: #f8f9fa;
+$background-color_3: transparent;
+
 .Menu {
-    border-style: solid;
-    border-color: red;
-    border-width: 1px;
-    width: 100%;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    background-color: #2196f3;
-
-    .Menu-top {
-        border-style: solid;
-        border-color: red;
-        border-width: 1px;
-        width: 100%;
-        height: 80%;
-        display: flex;
-        justify-content: space-between;
-
-        .Menu-top-icon {
-            border-style: solid;
-            border-color: red;
-            border-width: 1px;
-            width: 100px;
-            height: 100px;
-            display: flex;
-            background-color: #f8f9fa;
-            margin-top: 5%;
-
-        }
-
-        .Menu-top-search {
-            border-style: solid;
-            border-color: red;
-            border-width: 1px;
-            width: auto;
-            height: 50px;
-            display: flex;
-            background-color: #f8f9fa;
-            margin-top: 6%;
-
-        }
-
-    }
-
-    .Menu-bottom {
-        border-style: solid;
-        border-color: red;
-        border-width: 1px;
-        width: 100%;
-        height: 20%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
-
-        .Menu-bottom-option {
-            border-style: solid;
-            border-color: red;
-            border-width: 1px;
-            width: auto;
-            height: 100%;
-            display: flex;
-
-        }
-
-        .Menu-bottom-dkdn {
-            border-style: solid;
-            border-color: red;
-            border-width: 1px;
-            width: auto;
-            height: 100%;
-            display: flex;
-        }
-
-
-    }
-
+	width: 100%;
+	height: 220px;
+	display: flex;
+	flex-direction: column;
+	background-color: $background-color_1;
+	background-position: center center;
+	background-size: cover;
+	background-image: url('../../assets/images/background-header.png');
+	.Menu-top {
+		width: 100%;
+		height: 80%;
+		display: flex;
+		justify-content: space-between;
+		.Menu-top-icon {
+			display: flex;
+			margin-top: 20px;
+			margin-left: 20px;
+			width: 192px;
+		}
+		.Menu-top-search {
+			width: 300px;
+			height: 40px;
+			display: flex;
+			background-color: $background-color_2;
+			margin-top: 20px;
+			margin-right: 20px;
+			border-radius: 10px;
+			align-items: center;
+			padding: 0px 4px;
+			.search-input {
+				border: none;
+				outline: none;
+				background-color: $background-color_3;
+				width: 100%;
+			}
+		}
+	}
+	.Menu-bottom {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 20px;
+		padding-left: 20px;
+		padding-right: 20px;
+		.Menu-bottom-option {
+			width: auto;
+			height: 100%;
+			display: flex;
+		}
+		.Menu-bottom-dkdn {
+			width: auto;
+			height: 100%;
+			display: flex;
+		}
+	}
 }
-
 .svg-inline--fa.fa-w-16 {
-    height: 40px;
-    width: 40px;
-    margin-top: 5px;
-    margin-left: 4px;
-    cursor: pointer;
-
-    &:hover {
-        opacity: 0.5;
-    }
-
-    &:active {
-        background-color: #f8f9fa;
-    }
+	height: 16px;
+	width: 16px;
+	cursor: pointer;
+	&:hover {
+		opacity: 0.5;
+	}
+	&:active {
+		background-color: $background-color_2;
+	}
+}
+@media (max-width: 768px) {
+	.Menu {
+		.Menu-top {
+			flex-direction: column;
+			justify-content: flex-start;
+			.Menu-top-search {
+				width: 300px;
+				margin-left: 20px;
+			}
+		}
+		.Menu-bottom {
+			flex-direction: column;
+			justify-content: flex-start;
+		}
+	}
 }
