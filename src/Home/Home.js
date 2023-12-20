@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 
 import * as actions from '../store/actions';
-import '../assets/css/Home.css';
+import '../assets/css/Home/Home.css';
 import Menu from '../Menu/Menu';
 import Footer from '../Footer/Footer';
 import TopicPreview from '../TopicPreview/TopicPreview'
