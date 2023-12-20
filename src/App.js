@@ -10,6 +10,8 @@ import { path } from './constant/constant';
 import Home from './Home/Home';
 import Menu from './Menu/Menu';
 import Footer from './Footer/Footer';
+import MenuLogged from './MenuLogged/MenuLogged';
+import Posting from './Posting/Posting';
 
 
 
@@ -25,6 +27,9 @@ const App = () => {
           <Route path={path.HOME} exact component={(Home)} />
           <Route path={path.MENU} component={(Menu)} />
           <Route path={path.FOOTER} component={(Footer)} />
+          <Route path={path.MENULOGGED} component={(MenuLogged)} />
+          <Route path={path.POSTING} component={(Posting)} />
+
 
 
 

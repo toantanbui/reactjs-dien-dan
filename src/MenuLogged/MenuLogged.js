@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 
 import * as actions from '../store/actions';
 import '../assets/css/Menu/Menu.css';
-import Login from '../Login/Login';
+
 import logoHeader from '../assets/images/logo-header.png';
-import Signup from '../Signup/Signup';
+
 
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -14,26 +14,12 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 
-const Menu = () => {
+const MenuLogged = () => {
 
     let [isOpenLogin, setisOpenLogin] = useState(false)
     let [isOpenSignup, setisOpenSignup] = useState(false)
 
-    const handleIsOpenLogin = () => {
-        setisOpenLogin(true)
-    }
 
-    const handleToggle = () => {
-        setisOpenLogin(false)
-    }
-
-    const handleIsOpenSignup = () => {
-        setisOpenSignup(true)
-    }
-
-    const handleToggleSignup = () => {
-        setisOpenSignup(false)
-    }
     return (
         <div className='Menu' >
             <div className='Menu-top'>
@@ -48,27 +34,19 @@ const Menu = () => {
             </div>
             <div className='Menu-bottom'>
                 <div className='Menu-bottom-option'>
-                    <Login
-                        isOpen={isOpenLogin}
-                        toggle={handleToggle}
 
-                    />
-                    <Signup
-                        isOpen={isOpenSignup}
-                        toggle={handleToggleSignup}
-                    />
                     <button type="button" className="btn btn-light mr-3">Thảo luận</button>
                     <button type="button" className="btn btn-light mr-3">Bài viết</button>
                     <button type="button" className="btn btn-light mr-3">Đăng bài</button>
                 </div>
                 <div className='Menu-bottom-dkdn'>
                     <button type="button" className="btn btn-light mr-3"
-                        onClick={() => { handleIsOpenLogin() }}
-
-                    >Đăng nhập</button>
+                    >Tên</button>
                     <button type="button" className="btn btn-light"
-                        onClick={() => { handleIsOpenSignup() }}
-                    >Đăng kí</button>
+
+                    >Đăng xuất</button>
+
+
 
                 </div>
             </div>
@@ -80,7 +58,7 @@ const Menu = () => {
     );
 }
 
-export default Menu;
+export default MenuLogged;
 
 
 
