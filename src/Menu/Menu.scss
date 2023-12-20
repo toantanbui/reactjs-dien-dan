@@ -10,18 +10,21 @@ $background-color_3: transparent;
 	background-color: $background-color_1;
 	background-position: center center;
 	background-size: cover;
-	background-image: url('../../assets/images/background-header.png');
+	background-image: url('../../../assets/images/background-header.png');
+
 	.Menu-top {
 		width: 100%;
 		height: 80%;
 		display: flex;
 		justify-content: space-between;
+
 		.Menu-top-icon {
 			display: flex;
 			margin-top: 20px;
 			margin-left: 20px;
 			width: 192px;
 		}
+
 		.Menu-top-search {
 			width: 300px;
 			height: 40px;
@@ -32,6 +35,7 @@ $background-color_3: transparent;
 			border-radius: 10px;
 			align-items: center;
 			padding: 0px 4px;
+
 			.search-input {
 				border: none;
 				outline: none;
@@ -40,6 +44,7 @@ $background-color_3: transparent;
 			}
 		}
 	}
+
 	.Menu-bottom {
 		width: 100%;
 		display: flex;
@@ -47,11 +52,13 @@ $background-color_3: transparent;
 		margin-bottom: 20px;
 		padding-left: 20px;
 		padding-right: 20px;
+
 		.Menu-bottom-option {
 			width: auto;
 			height: 100%;
 			display: flex;
 		}
+
 		.Menu-bottom-dkdn {
 			width: auto;
 			height: 100%;
@@ -59,27 +66,33 @@ $background-color_3: transparent;
 		}
 	}
 }
+
 .svg-inline--fa.fa-w-16 {
 	height: 16px;
 	width: 16px;
 	cursor: pointer;
+
 	&:hover {
 		opacity: 0.5;
 	}
+
 	&:active {
 		background-color: $background-color_2;
 	}
 }
+
 @media (max-width: 768px) {
 	.Menu {
 		.Menu-top {
 			flex-direction: column;
 			justify-content: flex-start;
+
 			.Menu-top-search {
 				width: 300px;
 				margin-left: 20px;
 			}
 		}
+
 		.Menu-bottom {
 			flex-direction: column;
 			justify-content: flex-start;

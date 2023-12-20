@@ -20,10 +20,10 @@
       height: 20%;
       display: flex;
       color: #9bcbe7; }
+
 .Footer-copyright {
   color: #dadfea;
   bottom: 20px;
   background-color: #354351;
   text-align: end;
-  padding-right: 20px;
-}
+  padding-right: 20px; }

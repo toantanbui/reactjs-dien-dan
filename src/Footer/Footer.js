@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 
 import * as actions from '../store/actions';
-import '../assets/css/Footer.css';
+import '../assets/css/Footer/Footer.css';
 
 
 
