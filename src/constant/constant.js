@@ -1,7 +1,9 @@
 export const path = {
     HOME: '/',
     MENU: '/menu',
-    FOOTER: '/footer'
+    FOOTER: '/footer',
+    MENULOGGED: '/menulogged',
+    POSTING: '/posting'
 
 
 }
