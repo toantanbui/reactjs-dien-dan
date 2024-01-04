@@ -3,7 +3,8 @@ export const path = {
     MENU: '/menu',
     FOOTER: '/footer',
     MENULOGGED: '/menulogged',
-    POSTING: '/posting'
+    POSTING: '/posting',
+    DISCUSSION: '/discussion'
 
 
 }

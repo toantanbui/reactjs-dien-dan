@@ -12,6 +12,7 @@ import Menu from './Menu/Menu';
 import Footer from './Footer/Footer';
 import MenuLogged from './MenuLogged/MenuLogged';
 import Posting from './Posting/Posting';
+import Discussion from './Discussion/Discussion';
 
 
 
@@ -29,6 +30,7 @@ const App = () => {
           <Route path={path.FOOTER} component={(Footer)} />
           <Route path={path.MENULOGGED} component={(MenuLogged)} />
           <Route path={path.POSTING} component={(Posting)} />
+          <Route path={path.DISCUSSION} component={(Discussion)} />
 
 
 
