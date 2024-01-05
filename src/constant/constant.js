@@ -4,7 +4,8 @@ export const path = {
     FOOTER: '/footer',
     MENULOGGED: '/menulogged',
     POSTING: '/posting',
-    DISCUSSION: '/discussion'
+    DISCUSSION: '/discussion',
+    COMMENT: '/comment'
 
 
 }

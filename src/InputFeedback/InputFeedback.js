@@ -14,9 +14,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const InputFeedback = (props) => {
     const dispatch = useDispatch()
-    const handleCancel1 = () => {
-        props.handleCancel();
-    }
 
 
     return (
@@ -26,7 +23,7 @@ const InputFeedback = (props) => {
             <input type='text' placeholder='phản hồi' style={{ marginBottom: '10px' }} />
             <div className='button'>
                 <div className='button-cancel'
-                    onClick={() => { handleCancel1() }}
+
                 >Hủy</div>
                 <div className='button-feeback'>Phản hồi</div>
             </div>

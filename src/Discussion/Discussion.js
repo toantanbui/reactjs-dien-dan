@@ -7,12 +7,13 @@ import '../assets/css/Discussion/Discussion.css';
 import MenuLogged from '../MenuLogged/MenuLogged';
 import Footer from '../Footer/Footer';
 import TopicPreview from '../TopicPreview/TopicPreview';
-import InputFeedback from '../InputFeedback/InputFeedback';
-import Feedback from '../Feedback/Feedback';
+// import InputFeedback from '../InputFeedback/InputFeedback';
+// import Feedback from '../Feedback/Feedback';
+import Comment from '../Comment/Comment';
 
 const Discussion = () => {
     // const dispatch = useDispatch()
-    let [Comment, setComment] = useState([
+    let [abc, setAbc] = useState([
         { name: 'Nguyen Van A', comment: 'Dùng trà xanh để trị răng ê buốt khi uống nước lạnh Cách khắc phục Dùng trà xanh để trị răng ê buốt khi uống nước lạnh Cách khắc phục tình trạng răng bị ê buốt khi uống nước lạnh tại nhà' },
         { name: 'Nguyen Van B', comment: 'Bài viết hay' },
         { name: 'Nguyen Van C', comment: 'Bài viết cũng không hay lắm' },
@@ -25,9 +26,9 @@ const Discussion = () => {
         { name: 'Nguyen Van F', comment: 'xin chao' }
     ])
 
-    let [isOpenFeedback, setIsOpenFeedback] = useState(false)
+
     let [isOpenLike, setIsOpenLike] = useState(false)
-    let [isOpenFeedback1, setIsOpenFeedback1] = useState(false)
+
 
 
     const topics = [
@@ -51,17 +52,13 @@ const Discussion = () => {
         }
     ];
 
-    const handleIsOpenFeedback = () => {
-        setIsOpenFeedback(!isOpenFeedback);
-    }
+
 
     const handleIsOpenLike = () => {
         setIsOpenLike(!isOpenLike)
     }
 
-    const handleIsOpenFeedback1 = () => {
-        setIsOpenFeedback1(!isOpenFeedback1);
-    }
+
 
 
 
@@ -126,64 +123,20 @@ const Discussion = () => {
                         <i class="fas fa-paper-plane"></i>
                     </div>
 
+                    <div className='Discussion-content-left-comment-comment'>
+                        {
+                            abc.map((item, index) => {
+                                return (
+                                    <Comment key={index} name={item.name} comment={item.comment} />
+                                )
 
-                    {
-                        Comment && Comment.length > 0 && Comment.map((item, index) => {
-
-                            return (
-                                <div className='Discussion-content-left-comment'>
-                                    <div className='Discussion-content-left-comment-image'></div>
-                                    <div className='Discussion-content-left-comment-infor'>
-                                        <div className='Discussion-content-left-comment-infor-1'>
-                                            <div className='Discussion-content-left-comment-infor-1-name'>{item.name}</div>
-                                            <div className='Discussion-content-left-comment-infor-1-time'>2 năm</div>
-                                        </div>
-                                        <div className='Discussion-content-left-comment-infor-2'>
-                                            {item.comment}
-                                        </div>
-                                        <div className='Discussion-content-left-comment-infor-3'>
-                                            <div className='Discussion-content-left-comment-infor-3-like'>
-                                                <i className="far fa-thumbs-up"></i>
-                                                <span style={{ marginLeft: '5px' }}>1</span>
-                                            </div>
-                                            <div className='Discussion-content-left-comment-infor-3-dislike'>
-                                                <i className="far fa-thumbs-down"></i>
-                                                <span style={{ marginLeft: '5px' }}>2</span>
-                                            </div>
+                            })
+                        }
 
 
-                                            <div className='Discussion-content-left-comment-infor-3-feedback'
-                                                onClick={() => { handleIsOpenFeedback() }}
-                                            >Phản hồi</div>
-                                        </div>
-                                        <div className='Discussion-content-left-comment-infor-input'>
-                                            {isOpenFeedback && isOpenFeedback === true ? <InputFeedback
-                                                handleCancel={handleIsOpenFeedback}
-                                            /> : ''}
-                                        </div>
-                                        <div className='Discussion-content-left-comment-infor-4'>
-                                            <div className='Discussion-content-left-comment-infor-4-feedback'
-                                                onClick={() => { handleIsOpenFeedback1() }}
-                                            >
-                                                <i class="fas fa-caret-down"></i>
-                                                <span>1 phản hồi</span>
-                                            </div>
-                                        </div>
-                                        <div className='Discussion-content-left-comment-infor-5'>
-                                            {isOpenFeedback1 && isOpenFeedback1 === true ? <Feedback
-                                                handleCancel={handleIsOpenFeedback}
-                                            /> : ''}
-                                        </div>
-                                    </div>
+                    </div>
 
 
-                                </div>
-
-
-                            )
-
-                        })
-                    }
 
 
 
