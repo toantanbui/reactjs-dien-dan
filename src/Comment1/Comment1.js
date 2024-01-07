@@ -6,7 +6,6 @@ import * as actions from '../store/actions';
 // import '../assets/css/InputFeedback/InputFeedback.css';
 import '../assets/css/Comment/Comment.css';
 import InputFeedback from '../InputFeedback/InputFeedback';
-import Comment1 from '../Comment1/Comment1';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -15,17 +14,13 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 
-const Comment = (props) => {
+const Comment1 = (props) => {
     const dispatch = useDispatch()
 
     let [isOpenFeedback, setIsOpenFeedback] = useState(false)
-    let [isOpenComment1, setIsOpenComment1] = useState(false)
 
     const handleIsOpenFeedback = () => {
         setIsOpenFeedback(!isOpenFeedback)
-    }
-    const handleIsOpenComment1 = () => {
-        setIsOpenComment1(!isOpenComment1)
     }
 
 
@@ -35,11 +30,11 @@ const Comment = (props) => {
             <div className='Comment-content-left-comment-image'></div>
             <div className='Comment-content-left-comment-infor'>
                 <div className='Comment-content-left-comment-infor-1'>
-                    <div className='Comment-content-left-comment-infor-1-name'>{props.name}</div>
+                    <div className='Comment-content-left-comment-infor-1-name'>phan hoi</div>
                     <div className='Comment-content-left-comment-infor-1-time'>2 năm</div>
                 </div>
                 <div className='Comment-content-left-comment-infor-2'>
-                    {props.comment}
+                    comment
 
                 </div>
                 <div className='Comment-content-left-comment-infor-3'>
@@ -65,16 +60,13 @@ const Comment = (props) => {
                 </div>
                 <div className='Comment-content-left-comment-infor-4'>
                     <div className='Comment-content-left-comment-infor-4-feedback'
-                        onClick={() => { handleIsOpenComment1() }}
+
                     >
                         <i class="fas fa-caret-down"></i>
                         <span>1 phản hồi</span>
                     </div>
                 </div>
                 <div className='Comment-content-left-comment-infor-5'>
-                    {isOpenComment1 && isOpenComment1 === true ? <Comment1
-
-                    /> : ''}
 
                 </div>
             </div>
@@ -86,7 +78,7 @@ const Comment = (props) => {
     );
 }
 
-export default Comment;
+export default Comment1;
 
 
 
