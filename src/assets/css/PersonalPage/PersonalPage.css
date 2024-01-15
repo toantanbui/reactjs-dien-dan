@@ -1,0 +1,108 @@
+.PersonalPage {
+  border-style: solid;
+  border-color: red;
+  border-width: 1px;
+  width: 100%;
+  height: 1500px;
+  display: flex;
+  flex-direction: column; }
+  .PersonalPage .PersonalPage-header {
+    border-style: solid;
+    border-color: red;
+    border-width: 1px;
+    width: 100%;
+    height: auto;
+    display: flex; }
+  .PersonalPage .PersonalPage-content {
+    border-style: solid;
+    border-color: red;
+    border-width: 1px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; }
+    .PersonalPage .PersonalPage-content .PersonalPage-content-header {
+      border-style: solid;
+      border-color: red;
+      border-width: 1px;
+      width: 100%;
+      height: 400px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 20px; }
+      .PersonalPage .PersonalPage-content .PersonalPage-content-header .PersonalPage-content-header-left {
+        border-style: solid;
+        border-color: red;
+        border-width: 1px;
+        width: auto;
+        height: auto;
+        display: flex; }
+        .PersonalPage .PersonalPage-content .PersonalPage-content-header .PersonalPage-content-header-left .PersonalPage-content-header-left-image {
+          border-style: solid;
+          border-color: red;
+          border-width: 1px;
+          width: 150px;
+          height: 150px;
+          display: flex;
+          border-radius: 90px; }
+        .PersonalPage .PersonalPage-content .PersonalPage-content-header .PersonalPage-content-header-left .PersonalPage-content-header-left-name {
+          border-style: solid;
+          border-color: red;
+          border-width: 1px;
+          width: auto;
+          height: 150px;
+          display: flex;
+          align-items: flex-end;
+          padding-bottom: 20px; }
+          .PersonalPage .PersonalPage-content .PersonalPage-content-header .PersonalPage-content-header-left .PersonalPage-content-header-left-name .PersonalPage-content-header-left-name-name {
+            border-style: solid;
+            border-color: red;
+            border-width: 1px;
+            width: auto;
+            height: auto;
+            display: flex;
+            font-size: 25px; }
+      .PersonalPage .PersonalPage-content .PersonalPage-content-header .PersonalPage-content-header-right {
+        border-style: solid;
+        border-color: red;
+        border-width: 1px;
+        width: 12%;
+        height: 20%;
+        display: flex; }
+    .PersonalPage .PersonalPage-content .PersonalPage-content-menu {
+      border-style: solid;
+      border-color: red;
+      border-width: 1px;
+      width: 100%;
+      height: 100px;
+      display: flex; }
+    .PersonalPage .PersonalPage-content .PersonalPage-content-content {
+      border-style: solid;
+      border-color: red;
+      border-width: 1px;
+      width: 100%;
+      height: 100%;
+      display: flex; }
+      .PersonalPage .PersonalPage-content .PersonalPage-content-content .PersonalPage-content-content-left {
+        border-style: solid;
+        border-color: red;
+        border-width: 1px;
+        width: 30%;
+        height: 100%;
+        display: flex; }
+      .PersonalPage .PersonalPage-content .PersonalPage-content-content .PersonalPage-content-content-right {
+        border-style: solid;
+        border-color: red;
+        border-width: 1px;
+        width: 70%;
+        height: 100%;
+        overflow-y: scroll; }
+  .PersonalPage .PersonalPage-footer {
+    border-style: solid;
+    border-color: red;
+    border-width: 1px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column; }

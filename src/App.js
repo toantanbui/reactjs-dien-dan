@@ -14,7 +14,8 @@ import MenuLogged from './MenuLogged/MenuLogged';
 import Posting from './Posting/Posting';
 import Discussion from './Discussion/Discussion';
 import Comment from './Comment/Comment';
-
+import PersonalPage from './PersonalPage/PersonalPage';
+import Posts from './Posts/Posts';
 
 
 // import { userIsAuthenticated, userIsNotAuthenticated } from './authentication/authentication'
@@ -33,6 +34,8 @@ const App = () => {
           <Route path={path.POSTING} component={(Posting)} />
           <Route path={path.DISCUSSION} component={(Discussion)} />
           <Route path={path.COMMENT} component={(Comment)} />
+          <Route path={path.PERSONALPAGE} component={(PersonalPage)} />
+          <Route path={path.POSTS} component={(Posts)} />
 
 
 

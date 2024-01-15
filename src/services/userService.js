@@ -1,14 +1,18 @@
 import axios from '../axios';
 
 
-const handleGetNewUsers = () => {
-    return axios.get('/crud-get-new-user')
+const handleGetDataLogin = (data) => {
+    return axios.post('/api/login', data)
+}
+
+const handleGetDataSignup = (data) => {
+    return axios.post('/api/sign-up', data)
 }
 
 
 
 
 export {
-    handleGetNewUsers,
+    handleGetDataLogin, handleGetDataSignup
 
 }

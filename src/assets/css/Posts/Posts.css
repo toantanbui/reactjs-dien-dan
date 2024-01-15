@@ -1,0 +1,107 @@
+.Posts-content-left {
+  width: 100%;
+  height: auto;
+  flex-direction: column; }
+  .Posts-content-left .Posts-content-left-name {
+    border-style: solid;
+    border-width: 1px;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    align-items: center; }
+    .Posts-content-left .Posts-content-left-name .Posts-content-left-name-image {
+      border-style: solid;
+      border-width: 1px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      border-radius: 30px; }
+    .Posts-content-left .Posts-content-left-name .Posts-content-left-name-name {
+      border-style: solid;
+      border-width: 1px;
+      width: auto;
+      height: auto;
+      display: flex;
+      margin-left: 10px;
+      align-items: center;
+      font-weight: 600;
+      font-size: 23px; }
+  .Posts-content-left .Posts-content-left-content {
+    border-style: solid;
+    border-width: 1px;
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    padding: 20px; }
+  .Posts-content-left .Posts-content-left-like {
+    border-style: solid;
+    border-width: 1px;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px; }
+    .Posts-content-left .Posts-content-left-like .Posts-content-left-like-one {
+      width: 40%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between; }
+      .Posts-content-left .Posts-content-left-like .Posts-content-left-like-one .Posts-content-left-like-one-like {
+        width: auto;
+        height: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        cursor: pointer; }
+        .Posts-content-left .Posts-content-left-like .Posts-content-left-like-one .Posts-content-left-like-one-like.like {
+          background-color: #73787c; }
+        .Posts-content-left .Posts-content-left-like .Posts-content-left-like-one .Posts-content-left-like-one-like:hover {
+          background-color: #e7e9eb; }
+      .Posts-content-left .Posts-content-left-like .Posts-content-left-like-one .Posts-content-left-like-one-comment {
+        width: auto;
+        height: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        cursor: pointer; }
+        .Posts-content-left .Posts-content-left-like .Posts-content-left-like-one .Posts-content-left-like-one-comment:hover {
+          background-color: #e7e9eb; }
+        .Posts-content-left .Posts-content-left-like .Posts-content-left-like-one .Posts-content-left-like-one-comment:active {
+          background-color: #73787c; }
+      .Posts-content-left .Posts-content-left-like .Posts-content-left-like-one .Posts-content-left-like-one-share {
+        width: auto;
+        height: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        cursor: pointer; }
+        .Posts-content-left .Posts-content-left-like .Posts-content-left-like-one .Posts-content-left-like-one-share:hover {
+          background-color: #e7e9eb; }
+        .Posts-content-left .Posts-content-left-like .Posts-content-left-like-one .Posts-content-left-like-one-share:active {
+          background-color: #73787c; }
+    .Posts-content-left .Posts-content-left-like .Posts-content-left-like-two {
+      width: 25%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center; }
+  .Posts-content-left .Posts-content-left-input {
+    border-style: solid;
+    border-width: 1px;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px; }
+    .Posts-content-left .Posts-content-left-input .Posts-content-left-input-input {
+      width: 95%;
+      height: 60%;
+      margin-right: 5px; }
+  .Posts-content-left .Posts-content-left-comment-comment {
+    border-style: solid;
+    border-width: 1px;
+    width: 100%;
+    height: auto; }
