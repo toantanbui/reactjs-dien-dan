@@ -1,17 +1,13 @@
 .PersonalPage {
 
-    border-style: solid;
-    border-color: red;
-    border-width: 1px;
+
     width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
 
     .PersonalPage-header {
-        border-style: solid;
-        border-color: red;
-        border-width: 1px;
+
         width: 100%;
         height: auto;
         display: flex;
@@ -20,18 +16,14 @@
     }
 
     .PersonalPage-content {
-        border-style: solid;
-        border-color: red;
-        border-width: 1px;
+
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
 
         .PersonalPage-content-header {
-            border-style: solid;
-            border-color: red;
-            border-width: 1px;
+
             width: 100%;
             height: 400px;
             display: flex;
@@ -40,17 +32,13 @@
             padding: 20px;
 
             .PersonalPage-content-header-left {
-                border-style: solid;
-                border-color: red;
-                border-width: 1px;
+
                 width: auto;
                 height: auto;
                 display: flex;
 
                 .PersonalPage-content-header-left-image {
-                    border-style: solid;
-                    border-color: red;
-                    border-width: 1px;
+
                     width: 150px;
                     height: 150px;
                     display: flex;
@@ -59,9 +47,7 @@
                 }
 
                 .PersonalPage-content-header-left-name {
-                    border-style: solid;
-                    border-color: red;
-                    border-width: 1px;
+
                     width: auto;
                     height: 150px;
                     display: flex;
@@ -69,9 +55,7 @@
                     padding-bottom: 20px;
 
                     .PersonalPage-content-header-left-name-name {
-                        border-style: solid;
-                        border-color: red;
-                        border-width: 1px;
+
                         width: auto;
                         height: auto;
                         display: flex;
@@ -93,37 +77,32 @@
         }
 
         .PersonalPage-content-menu {
-            border-style: solid;
-            border-color: red;
-            border-width: 1px;
+
             width: 100%;
             height: 100px;
             display: flex;
+            background-color: aliceblue;
 
         }
 
         .PersonalPage-content-content {
-            border-style: solid;
-            border-color: red;
-            border-width: 1px;
+
             width: 100%;
             height: auto;
             display: flex;
 
             .PersonalPage-content-content-left {
-                border-style: solid;
-                border-color: red;
-                border-width: 1px;
+
                 width: 30%;
                 height: 800px;
                 display: flex;
+                background-color: aqua;
+
 
             }
 
             .PersonalPage-content-content-right {
-                border-style: solid;
-                border-color: red;
-                border-width: 1px;
+
                 width: 70%;
                 height: 800px;
 
@@ -135,9 +114,7 @@
     }
 
     .PersonalPage-footer {
-        border-style: solid;
-        border-color: red;
-        border-width: 1px;
+
         width: 100%;
         height: auto;
         display: flex;

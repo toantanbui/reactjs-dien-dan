@@ -9,11 +9,13 @@ import Footer from '../Footer/Footer';
 import TopicPreview from '../TopicPreview/TopicPreview'
 
 import { useSelector, useDispatch } from 'react-redux';
-
+import MenuLogged from '../MenuLogged/MenuLogged';
 
 
 
 const Home = () => {
+
+
     const dispatch = useDispatch()
     const latestTopics = [
         {
@@ -77,10 +79,38 @@ const Home = () => {
             previewContent: "TVS Dazz 110 mang thiết kế thể thao và mức giá dễ tiếp cận hơn Honda Vision, tuy nhiên"
         }
     ];
+
+    let [isLoggedIn, setisLoggedIn] = useState(false)
+
+    let isLoggedInRedux = useSelector(state => state.user.isLoggedIn)
+
+    useEffect(() => {
+        setisLoggedIn(isLoggedInRedux)
+        console.log('Home la ', isLoggedIn)
+    }, [])
+
+    useEffect(() => {
+        setisLoggedIn(isLoggedInRedux)
+        console.log('Home update la ', isLoggedIn)
+    }, [isLoggedInRedux])
+
+
+
+
+
+
+
+
+
+
     return (
         <div className='Home'>
             <div className='Home-header'>
-                <Menu />
+                {isLoggedIn && isLoggedIn === true ?
+
+                    <MenuLogged /> : <Menu />}
+
+
             </div>
             <div className='Home-content'>
                 <div className='Home-content-up'>

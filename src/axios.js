@@ -15,7 +15,7 @@ instance.defaults.withCredentials = true
 
 
 let abc = localStorage.getItem('persist:user');
-let token = JSON.parse(abc).tokenRedux;
+let token = JSON.parse(abc).reduxToken;
 
 instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 

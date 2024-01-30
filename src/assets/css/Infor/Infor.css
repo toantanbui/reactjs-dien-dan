@@ -1,0 +1,49 @@
+.Infor {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column; }
+  .Infor .Infor-header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column; }
+  .Infor .Infor-content {
+    border-style: solid;
+    border-color: red;
+    border-width: 1px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+    padding-right: 100px; }
+    .Infor .Infor-content .Infor-content-title {
+      border-style: solid;
+      border-color: red;
+      border-width: 1px;
+      width: 100%;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      font-size: 30px; }
+    .Infor .Infor-content .Infor-content-content {
+      border-style: solid;
+      border-color: red;
+      border-width: 1px;
+      width: 100%;
+      height: auto; }
+    .Infor .Infor-content .Infor-content-send {
+      border-style: solid;
+      border-color: red;
+      border-width: 1px;
+      width: 100%;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end; }
+  .Infor .Infor-footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column; }

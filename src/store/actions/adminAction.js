@@ -1,7 +1,8 @@
 import actionTypes from "./actionTypes";
 
 import {
-    handleGetDataLogin, handleGetDataSignup
+    handleGetDataLogin, handleGetDataSignup, handleGetDataLogout,
+    handleGetDataOneUser, handleEditDataOneUser
 
 } from '../../services/userService'
 
@@ -89,3 +90,80 @@ export const handleSignup = (data1) => {
         }
     }
 }
+
+export const handleLogout = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await handleGetDataLogout();
+
+
+            dispatch({
+                type: actionTypes.USER_LOGOUT,
+
+            })
+
+
+
+
+
+        } catch (e) {
+            console.log(e)
+
+        }
+    }
+}
+
+export const handleGetOneUser = (data1) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await handleGetDataOneUser(data1);
+
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.GET_ONE_USER,
+
+                    errMessage: res.errMessage,
+                    data: res.data
+
+
+                })
+
+            }
+
+
+
+        } catch (e) {
+            console.log(e)
+
+        }
+    }
+}
+
+export const handleEditOneUser = (data1) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await handleEditDataOneUser(data1);
+
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.EDIT_ONE_USER,
+
+                    errMessage: res.errMessage,
+
+
+
+                })
+
+                await dispatch(handleGetOneUser(data1.id))
+
+            }
+
+
+
+        } catch (e) {
+            console.log(e)
+
+        }
+    }
+}
+

@@ -27,6 +27,16 @@ const userReducer = (state = initialState, action) => {
 
             }
 
+        case actionTypes.USER_LOGOUT:
+            state.isLoggedIn = false;
+            state.errMessage = action.data;
+            state.reduxToken = null;
+            state.userInfo = null;
+            return {
+                ...state,
+
+            }
+
 
 
 

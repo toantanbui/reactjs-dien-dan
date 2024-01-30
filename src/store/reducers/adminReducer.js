@@ -4,7 +4,8 @@ const initialState = {
     isLoggedIn: false,
     userInfo: null,
     UsersRedux: [],
-    errMessage: ''
+    errMessage: '',
+    userInfo1: null
 
 
 
@@ -36,6 +37,14 @@ const adminReducer = (state = initialState, action) => {
             state.errMessage = action.errMessage
 
             console.log('action', action)
+
+            return {
+                ...state,
+            }
+        case actionTypes.GET_ONE_USER:
+            state.userInfo1 = action.data
+
+            console.log('action userInfo', state.userInfo1)
 
             return {
                 ...state,

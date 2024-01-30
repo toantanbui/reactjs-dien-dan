@@ -16,6 +16,7 @@ import Discussion from './Discussion/Discussion';
 import Comment from './Comment/Comment';
 import PersonalPage from './PersonalPage/PersonalPage';
 import Posts from './Posts/Posts';
+import Infor from './Infor/Infor';
 
 
 // import { userIsAuthenticated, userIsNotAuthenticated } from './authentication/authentication'
@@ -36,6 +37,7 @@ const App = () => {
           <Route path={path.COMMENT} component={(Comment)} />
           <Route path={path.PERSONALPAGE} component={(PersonalPage)} />
           <Route path={path.POSTS} component={(Posts)} />
+          <Route path={path.INFOR} component={(Infor)} />
 
 
 
