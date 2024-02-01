@@ -4,7 +4,7 @@ export const path = {
     FOOTER: '/footer',
     MENULOGGED: '/menulogged',
     POSTING: '/posting/:id',
-    DISCUSSION: '/discussion',
+    DISCUSSION: '/discussion/:id',
     COMMENT: '/comment',
     PERSONALPAGE: '/personalpage/:id',
     POSTS: '/posts',

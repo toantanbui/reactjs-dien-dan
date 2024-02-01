@@ -29,6 +29,20 @@ const Discussion = () => {
 
     let [isOpenLike, setIsOpenLike] = useState(false)
 
+    let [id, setid] = useState('')
+
+    let [lastName, setlastName] = useState('')
+    let [firstName, setfirstName] = useState('')
+    let [email, setemail] = useState('')
+    let [avatar, setavatar] = useState('')
+    let [postName, setpostName] = useState('')
+    let [postContent, setpostContent] = useState('')
+    let [like, setlike] = useState('')
+    let [comment, setcomment] = useState('')
+    let [time, settime] = useState('')
+
+
+
 
 
     const topics = [

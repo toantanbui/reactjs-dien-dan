@@ -5,7 +5,9 @@ const initialState = {
     userInfo: null,
     UsersRedux: [],
     errMessage: '',
-    userInfo1: null
+    userInfo1: null,
+    errMessagePosts: '',
+
 
 
 
@@ -45,6 +47,14 @@ const adminReducer = (state = initialState, action) => {
             state.userInfo1 = action.data
 
             console.log('action userInfo', state.userInfo1)
+
+            return {
+                ...state,
+            }
+        case actionTypes.CREATE_ONE_POSTS:
+            state.errMessagePosts = action.errMessage
+
+            console.log('action errMessagePosts ', state)
 
             return {
                 ...state,

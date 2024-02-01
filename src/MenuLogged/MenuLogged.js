@@ -68,6 +68,12 @@ const MenuLogged = (props) => {
         history.push(`/`);
     }
 
+    const handleClickDiscussion = () => {
+        let abc = localStorage.getItem('persist:user');
+        let id = JSON.parse(abc).userInfo;
+        history.push(`/discussion/${id}`);
+    }
+
 
     return (
         <div className='Menu' >
@@ -85,7 +91,9 @@ const MenuLogged = (props) => {
             <div className='Menu-bottom'>
                 <div className='Menu-bottom-option'>
 
-                    <button type="button" className="btn btn-light mr-3">Thảo luận</button>
+                    <button type="button" className="btn btn-light mr-3"
+                        onClick={() => { handleClickDiscussion() }}
+                    >Thảo luận</button>
                     <button type="button" className="btn btn-light mr-3"
                         onClick={() => { handleClickHome() }}
                     >Bài viết</button>
