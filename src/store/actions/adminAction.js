@@ -2,7 +2,8 @@ import actionTypes from "./actionTypes";
 
 import {
     handleGetDataLogin, handleGetDataSignup, handleGetDataLogout,
-    handleGetDataOneUser, handleEditDataOneUser, handleCreateDataPosts
+    handleGetDataOneUser, handleEditDataOneUser, handleCreateDataPosts,
+    handleGetDataOnePosts
 
 } from '../../services/userService'
 
@@ -130,7 +131,7 @@ export const handleGetOneUser = (data1) => {
 
             }
 
-
+            await dispatch(handleGetPosts(data1))
 
         } catch (e) {
             console.log(e)
@@ -182,6 +183,31 @@ export const handleCreatePosts = (data1) => {
 
                 })
 
+
+            }
+
+
+
+        } catch (e) {
+            console.log(e)
+
+        }
+    }
+}
+export const handleGetPosts = (data1) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await handleGetDataOnePosts(data1);
+
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.GET_ONE_POSTS,
+
+                    errMessage: res.errMessage,
+                    data: res.data
+
+
+                })
 
             }
 

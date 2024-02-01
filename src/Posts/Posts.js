@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from '../store/actions';
 import '../assets/css/Posts/Posts.css';
 import Comment from '../Comment/Comment';
+import { Buffer } from 'buffer';
 
 
 
@@ -14,7 +15,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 
-const Posts = () => {
+const Posts = (props) => {
     const dispatch = useDispatch()
     let [abc, setAbc] = useState([
         { name: 'Nguyen Van A', comment: 'Dùng trà xanh để trị răng ê buốt khi uống nước lạnh Cách khắc phục Dùng trà xanh để trị răng ê buốt khi uống nước lạnh Cách khắc phục tình trạng răng bị ê buốt khi uống nước lạnh tại nhà' },
@@ -29,6 +30,51 @@ const Posts = () => {
         { name: 'Nguyen Van F', comment: 'xin chao' }
     ])
 
+    useEffect(async () => {
+
+        let imageBase64 = '';
+
+        if (props.avatar) {
+
+            imageBase64 = new Buffer(props.avatar, 'base64').toString('binary')
+
+            if (imageBase64) {
+
+
+                setavatar(imageBase64)
+
+            }
+        }
+
+        // console.log('componentDidmount-infor-update', userInfoRedux.email
+
+    }, [])
+
+    useEffect(async () => {
+
+        let imageBase64 = '';
+
+        if (props.avatar) {
+
+            imageBase64 = new Buffer(props.avatar, 'base64').toString('binary')
+
+            if (imageBase64) {
+
+
+                setavatar(imageBase64)
+
+            }
+        }
+
+        // console.log('componentDidmount-infor-update', userInfoRedux.email
+
+    }, [props.avatar])
+
+
+
+
+
+    let [avatar, setavatar] = useState('')
 
     let [isOpenLike, setIsOpenLike] = useState(false)
     let [isOpenComment, setIsOpenComment] = useState(false)
@@ -47,26 +93,13 @@ const Posts = () => {
 
             <div className='Posts-content-left'>
                 <div className='Posts-content-left-name'>
-                    <div className='Posts-content-left-name-image'></div>
-                    <div className='Posts-content-left-name-name'>Nguyễn Văn A</div>
+                    <div className='Posts-content-left-name-image'
+                        style={{ backgroundImage: `url(${avatar})`, backgroundSize: 'contain' }}
+                    ></div>
+                    <div className='Posts-content-left-name-name'>{props.lastName} {props.firstName}</div>
                 </div>
                 <div className='Posts-content-left-content'>
-                    Do biến chứng sau điều trị nha khoa
-                    Một số kỹ thuật điều trị nha khoa cần tác động đến răng miệng. Nếu bác sĩ không thực hiện đúng quy trình, cũng như không đảm bảo các yếu tố an toàn sẽ gây ảnh hưởng đến răng và các mô mềm bên trong khoang miệng. Điển hình như men răng bị bào mòn, lộ ngà răng. Điều đó không chỉ khiến răng nhạy cảm hơn mà còn làm sức khỏe răng miệng bị suy giảm nghiêm trọng. Đây cũng là một trong những nguyên nhân khiến răng bị ê buốt khi uống nước, ăn đồ lạnh.
-
-                    Cách khắc phục tình trạng răng bị ê buốt khi uống nước lạnh tại nhà
-                    Tình trạng răng bị ê buốt khi uống nước lạnh xảy ra khá phổ biến. Dưới đây là một số phương pháp khắc phục tình trạng này ngay tại nhà mà bạn có thể tham khảo:
-
-                    Dùng trà xanh để trị răng ê buốt khi uống nước lạnh
-                    Theo nhiều nghiên cứu, trong lá trà xanh chứa nhiều chất tốt cho sức khỏe răng miệng như catechin, axit tannic, florua,… Những chất này đều có tác dụng hỗ trợ hình thành lớp protein cứng. Axit tannic có trong trà cũng giúp ngăn ngừa tình trạng hòa tan canxi, giúp răng chắc khỏe hơn.
-                    Do biến chứng sau điều trị nha khoa
-                    Một số kỹ thuật điều trị nha khoa cần tác động đến răng miệng. Nếu bác sĩ không thực hiện đúng quy trình, cũng như không đảm bảo các yếu tố an toàn sẽ gây ảnh hưởng đến răng và các mô mềm bên trong khoang miệng. Điển hình như men răng bị bào mòn, lộ ngà răng. Điều đó không chỉ khiến răng nhạy cảm hơn mà còn làm sức khỏe răng miệng bị suy giảm nghiêm trọng. Đây cũng là một trong những nguyên nhân khiến răng bị ê buốt khi uống nước, ăn đồ lạnh.
-
-                    Cách khắc phục tình trạng răng bị ê buốt khi uống nước lạnh tại nhà
-                    Tình trạng răng bị ê buốt khi uống nước lạnh xảy ra khá phổ biến. Dưới đây là một số phương pháp khắc phục tình trạng này ngay tại nhà mà bạn có thể tham khảo:
-
-                    Dùng trà xanh để trị răng ê buốt khi uống nước lạnh
-                    Theo nhiều nghiên cứu, trong lá trà xanh chứa nhiều chất tốt cho sức khỏe răng miệng như catechin, axit tannic, florua,… Những chất này đều có tác dụng hỗ trợ hình thành lớp protein cứng. Axit tannic có trong trà cũng giúp ngăn ngừa tình trạng hòa tan canxi, giúp răng chắc khỏe hơn.
+                    {props.postContent}
                 </div>
                 <div className='Posts-content-left-like'>
                     <div className='Posts-content-left-like-one'>
@@ -93,8 +126,8 @@ const Posts = () => {
                         </div>
                     </div>
                     <div className='Posts-content-left-like-two'>
-                        <span>1 like</span>
-                        <span style={{ marginLeft: '10px' }}>1 comment</span>
+                        <span>{props.like} like</span>
+                        <span style={{ marginLeft: '10px' }}>{props.comment} comment</span>
                     </div>
                 </div>
                 <div className='Posts-content-left-input'>

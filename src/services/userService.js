@@ -25,11 +25,16 @@ const handleCreateDataPosts = (data) => {
     return axios.post('/api/create-posts', data)
 }
 
+const handleGetDataOnePosts = (data) => {
+    return axios.post('/api/get-posts', data)
+}
+
 
 
 
 export {
     handleGetDataLogin, handleGetDataSignup, handleGetDataLogout,
-    handleGetDataOneUser, handleEditDataOneUser, handleCreateDataPosts
+    handleGetDataOneUser, handleEditDataOneUser, handleCreateDataPosts,
+    handleGetDataOnePosts
 
 }

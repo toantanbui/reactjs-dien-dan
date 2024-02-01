@@ -111,7 +111,7 @@ const Posting = (props) => {
 
     const handleCreateOnePosts = () => {
         dispatch(actions.handleCreatePosts({
-
+            id: id,
             lastName: lastName,
             firstName: firstName,
             email: email,
