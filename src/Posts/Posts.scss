@@ -49,6 +49,15 @@
         min-height: 100px;
         display: flex;
         padding: 20px;
+        flex-direction: column;
+
+        .Posts-content-left-content-title {
+            width: auto;
+            min-height: auto;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 600;
+        }
     }
 
     .Posts-content-left-like {

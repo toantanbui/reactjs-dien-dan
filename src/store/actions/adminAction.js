@@ -3,7 +3,7 @@ import actionTypes from "./actionTypes";
 import {
     handleGetDataLogin, handleGetDataSignup, handleGetDataLogout,
     handleGetDataOneUser, handleEditDataOneUser, handleCreateDataPosts,
-    handleGetDataOnePosts
+    handleGetDataOnePosts, handleCreateDataComment1
 
 } from '../../services/userService'
 
@@ -11,26 +11,6 @@ import {
 
 
 
-
-// export const getNewUsers = () => {
-//     return async (dispatch, getState) => {
-//         try {
-//             let res = await handleGetNewUsers();
-//             console.log('res', res)
-//             if (res && res.errCode === 0) {
-//                 dispatch({
-//                     type: actionTypes.GET_NEW_USERS,
-//                     data: res.data
-//                 })
-//             }
-
-
-//         } catch (e) {
-//             console.log(e)
-
-//         }
-//     }
-// }
 
 export const handleLogin = (data1) => {
     return async (dispatch, getState) => {
@@ -208,6 +188,36 @@ export const handleGetPosts = (data1) => {
 
 
                 })
+
+            }
+
+
+
+        } catch (e) {
+            console.log(e)
+
+        }
+    }
+}
+
+export const handleCreateComment1 = (data1) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await handleCreateDataComment1(data1);
+
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.CREATE_ONE_COMMENT1,
+
+                    errMessage: res.errMessage,
+
+
+
+                })
+                await dispatch(handleGetPosts({ id: data1.idUser }))
+
+
+
 
             }
 

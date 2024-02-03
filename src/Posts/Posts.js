@@ -30,7 +30,16 @@ const Posts = (props) => {
         { name: 'Nguyen Van F', comment: 'xin chao' }
     ])
 
+    let [comment1, setcomment1] = useState([])
     useEffect(async () => {
+
+        setlastName(props.lastName)
+        setfirstName(props.firstName)
+        setemail(props.email)
+        setidPosts(props.idPosts)
+        setcomment1(props.Comment1)
+        setidUser(props.idUser)
+
 
         let imageBase64 = '';
 
@@ -52,6 +61,13 @@ const Posts = (props) => {
 
     useEffect(async () => {
 
+        setlastName(props.lastName)
+        setfirstName(props.firstName)
+        setemail(props.email)
+        setidPosts(props.idPosts)
+        setcomment1(props.Comment1)
+        setidUser(props.idUser)
+
         let imageBase64 = '';
 
         if (props.avatar) {
@@ -70,11 +86,23 @@ const Posts = (props) => {
 
     }, [props.avatar])
 
-
-
-
-
+    let [lastName, setlastName] = useState('')
+    let [firstName, setfirstName] = useState('')
+    let [email, setemail] = useState('')
     let [avatar, setavatar] = useState('')
+    let [idPosts, setidPosts] = useState('')
+    let [content, setcontent] = useState('')
+    let [idUser, setidUser] = useState('')
+
+    const onChangeInputContent = (event) => {
+        let event1 = event.target.value;
+        console.log('họ ', event1)
+
+        setcontent(event1)
+    }
+
+
+
 
     let [isOpenLike, setIsOpenLike] = useState(false)
     let [isOpenComment, setIsOpenComment] = useState(false)
@@ -85,6 +113,25 @@ const Posts = (props) => {
     const handleIsOpenComment = () => {
         setIsOpenComment(!isOpenComment)
     }
+
+    const handleCreateCommentPosts = async () => {
+        console.log('da chay')
+        await props.handleCreateComment1({
+            idPosts: idPosts,
+            lastName: lastName,
+            firstName: firstName,
+            email: email,
+            content: content,
+            avatar: avatar,
+            idUser: idUser
+
+
+        })
+
+        setcontent('')
+    }
+
+
 
 
 
@@ -98,8 +145,18 @@ const Posts = (props) => {
                     ></div>
                     <div className='Posts-content-left-name-name'>{props.lastName} {props.firstName}</div>
                 </div>
-                <div className='Posts-content-left-content'>
-                    {props.postContent}
+                <div className='Posts-content-left-content'
+
+                >
+                    <div className='Posts-content-left-content-title'>
+
+                        {props.postName}
+                    </div>
+
+                    <div dangerouslySetInnerHTML={{ __html: props.postContent }}>
+
+                    </div>
+
                 </div>
                 <div className='Posts-content-left-like'>
                     <div className='Posts-content-left-like-one'>
@@ -131,17 +188,30 @@ const Posts = (props) => {
                     </div>
                 </div>
                 <div className='Posts-content-left-input'>
-                    <input type='text' placeholder='Comment' className='Posts-content-left-input-input' />
-                    <i class="fas fa-paper-plane"></i>
+                    <input type='text' placeholder='Comment' className='Posts-content-left-input-input'
+                        onChange={(event) => onChangeInputContent(event)}
+                        value={content}
+
+                    />
+                    <div
+                        onClick={() => { handleCreateCommentPosts() }}
+                    >
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+
+
                 </div>
 
                 <div className='Posts-content-left-comment-comment'>
                     {
                         isOpenComment && isOpenComment === true ?
-                            abc.map((item, index) => {
+                            comment1.length > 0 && comment1.map((item, index) => {
                                 return (
 
-                                    <Comment key={index} name={item.name} comment={item.comment} />
+                                    <Comment key={index} lastName={item.lastName} firstName={item.firstName}
+                                        content={item.content} like={item.like} comment={item.comment}
+                                        avatar={item.avatar} createdAt={item.createdAt}
+                                    />
                                 )
 
                             })

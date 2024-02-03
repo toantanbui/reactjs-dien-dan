@@ -144,6 +144,11 @@ const PersonalPage = (props) => {
 
         setisOpenpreviewBackground(true)
     }
+    const handleCreateComment11 = (data) => {
+        console.log('đa chay')
+        dispatch(actions.handleCreateComment1(data))
+
+    }
 
 
 
@@ -214,7 +219,9 @@ const PersonalPage = (props) => {
                                     <Posts key={index} firstName={item.firstName} lastName={item.lastName}
                                         like={item.like} comment={item.comment}
                                         avatar={item.avatar} postContent={item.postContent}
-                                        postName={item.postName} time={item.time}
+                                        postName={item.postName} time={item.time} idPosts={item._id}
+                                        Comment1={item.Comment1} idUser={item.idUser}
+                                        handleCreateComment1={handleCreateComment11}
 
                                     />
                                 )
