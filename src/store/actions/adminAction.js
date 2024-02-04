@@ -3,7 +3,7 @@ import actionTypes from "./actionTypes";
 import {
     handleGetDataLogin, handleGetDataSignup, handleGetDataLogout,
     handleGetDataOneUser, handleEditDataOneUser, handleCreateDataPosts,
-    handleGetDataOnePosts, handleCreateDataComment1
+    handleGetDataOnePosts, handleCreateDataComment1, handleEditPostsData
 
 } from '../../services/userService'
 
@@ -230,3 +230,32 @@ export const handleCreateComment1 = (data1) => {
     }
 }
 
+export const handleEditPosts = (data1) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await handleEditPostsData(data1);
+
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.EDIT_ONE_POSTS,
+
+                    errMessage: res.errMessage,
+
+
+
+                })
+                await dispatch(handleGetPosts({ id: data1.idUser }))
+
+
+
+
+            }
+
+
+
+        } catch (e) {
+            console.log(e)
+
+        }
+    }
+}

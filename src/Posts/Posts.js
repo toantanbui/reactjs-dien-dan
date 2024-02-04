@@ -39,6 +39,7 @@ const Posts = (props) => {
         setidPosts(props.idPosts)
         setcomment1(props.Comment1)
         setidUser(props.idUser)
+        setlike(props.like)
 
 
         let imageBase64 = '';
@@ -67,6 +68,7 @@ const Posts = (props) => {
         setidPosts(props.idPosts)
         setcomment1(props.Comment1)
         setidUser(props.idUser)
+        setlike(props.like)
 
         let imageBase64 = '';
 
@@ -93,6 +95,7 @@ const Posts = (props) => {
     let [idPosts, setidPosts] = useState('')
     let [content, setcontent] = useState('')
     let [idUser, setidUser] = useState('')
+    let [like, setlike] = useState(0)
 
     const onChangeInputContent = (event) => {
         let event1 = event.target.value;
@@ -107,8 +110,33 @@ const Posts = (props) => {
     let [isOpenLike, setIsOpenLike] = useState(false)
     let [isOpenComment, setIsOpenComment] = useState(false)
 
-    const handleIsOpenLike = () => {
-        setIsOpenLike(!isOpenLike)
+    const handleIsOpenLike = async () => {
+        console.log('gia trị isOpenlike', isOpenLike)
+        if (isOpenLike === true) {
+            // setlike(like + 1)
+            props.handleEditPostsLike({
+                idPosts: idPosts,
+                like: like + 1,
+                idUser: idUser
+
+            })
+            setIsOpenLike(false)
+        } else {
+            // setlike(like - 1)
+            props.handleEditPostsLike({
+                idPosts: idPosts,
+                like: like - 1,
+                idUser: idUser
+
+            })
+            setIsOpenLike(true)
+        }
+
+
+
+
+
+
     }
     const handleIsOpenComment = () => {
         setIsOpenComment(!isOpenComment)
@@ -161,8 +189,8 @@ const Posts = (props) => {
                 <div className='Posts-content-left-like'>
                     <div className='Posts-content-left-like-one'>
                         <div
-                            className={isOpenLike && isOpenLike === true ? 'Posts-content-left-like-one-like like' :
-                                'Posts-content-left-like-one-like'
+                            className={isOpenLike && isOpenLike === true ? 'Posts-content-left-like-one-like' :
+                                'Posts-content-left-like-one-like like'
 
                             }
                             onClick={() => { handleIsOpenLike() }}

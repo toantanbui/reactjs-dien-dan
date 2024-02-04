@@ -131,6 +131,10 @@ const PersonalPage = (props) => {
 
 
 
+
+
+
+
     let [isOpenpreviewImage, setisOpenpreviewImage] = useState(false)
     let [isOpenpreviewBackground, setisOpenpreviewBackground] = useState(false)
 
@@ -147,6 +151,12 @@ const PersonalPage = (props) => {
     const handleCreateComment11 = (data) => {
         console.log('đa chay')
         dispatch(actions.handleCreateComment1(data))
+
+    }
+
+    const handleEditPostsLike = (data) => {
+        console.log('đa chay')
+        dispatch(actions.handleEditPosts(data))
 
     }
 
@@ -222,6 +232,7 @@ const PersonalPage = (props) => {
                                         postName={item.postName} time={item.time} idPosts={item._id}
                                         Comment1={item.Comment1} idUser={item.idUser}
                                         handleCreateComment1={handleCreateComment11}
+                                        handleEditPostsLike={handleEditPostsLike}
 
                                     />
                                 )
