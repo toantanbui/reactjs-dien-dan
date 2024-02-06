@@ -109,8 +109,8 @@ const Posting = (props) => {
         setpostContent(html)
     }
 
-    const handleCreateOnePosts = () => {
-        dispatch(actions.handleCreatePosts({
+    const handleCreateOnePosts = async () => {
+        await dispatch(actions.handleCreatePosts({
             id: id,
             lastName: lastName,
             firstName: firstName,
@@ -122,6 +122,8 @@ const Posting = (props) => {
 
 
         }))
+        setpostName('')
+        setpostContent('')
     }
 
 
@@ -136,14 +138,19 @@ const Posting = (props) => {
 
                         <input type='text' placeholder='tên bài viết' style={{ width: '500px' }}
                             onChange={(event) => onChangeInputPostName(event)}
+                            value={postName}
                         />
                     </div>
                     <div className='Posting-content-header-author'>
-                        <input type='text' placeholder='Tên tác giả' style={{ width: '500px' }} />
+                        {/* <input type='text' placeholder='Tên tác giả' style={{ width: '500px' }}
+
+                        /> */}
                     </div>
                 </div>
                 <div className='Posting-content-markdown'>
-                    <MdEditor style={{ height: '100%', width: '100%' }} renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} />
+                    <MdEditor style={{ height: '100%', width: '100%' }}
+
+                        renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} />
 
                 </div>
                 <div className='Posting-content-button'>

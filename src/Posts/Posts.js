@@ -40,6 +40,7 @@ const Posts = (props) => {
         setcomment1(props.Comment1)
         setidUser(props.idUser)
         setlike(props.like)
+        setisLike(props.isLike)
 
 
         let imageBase64 = '';
@@ -69,6 +70,10 @@ const Posts = (props) => {
         setcomment1(props.Comment1)
         setidUser(props.idUser)
         setlike(props.like)
+        setisLike(props.isLike)
+
+        console.log("props.isLike", props.isLike)
+
 
         let imageBase64 = '';
 
@@ -86,7 +91,7 @@ const Posts = (props) => {
 
         // console.log('componentDidmount-infor-update', userInfoRedux.email
 
-    }, [props.avatar])
+    }, [props.avatar, props.isLike])
 
     let [lastName, setlastName] = useState('')
     let [firstName, setfirstName] = useState('')
@@ -107,30 +112,37 @@ const Posts = (props) => {
 
 
 
-    let [isOpenLike, setIsOpenLike] = useState(false)
+    let [isLike, setisLike] = useState()
     let [isOpenComment, setIsOpenComment] = useState(false)
 
-    const handleIsOpenLike = async () => {
-        console.log('gia trị isOpenlike', isOpenLike)
-        if (isOpenLike === true) {
+    const handleIsOpenLike = async (data) => {
+        setisLike(data)
+        console.log('gia trị isOpenlike đang kiểm tra là', props.isLike)
+
+
+        if (data === true) {
             // setlike(like + 1)
             props.handleEditPostsLike({
                 idPosts: idPosts,
                 like: like + 1,
-                idUser: idUser
+                idUser: idUser,
+                isLike: data
 
             })
-            setIsOpenLike(false)
+
         } else {
             // setlike(like - 1)
             props.handleEditPostsLike({
                 idPosts: idPosts,
                 like: like - 1,
-                idUser: idUser
+                idUser: idUser,
+                isLike: data
 
             })
-            setIsOpenLike(true)
+
         }
+
+        console.log('gia trị isOpenlike', isLike)
 
 
 
@@ -189,11 +201,11 @@ const Posts = (props) => {
                 <div className='Posts-content-left-like'>
                     <div className='Posts-content-left-like-one'>
                         <div
-                            className={isOpenLike && isOpenLike === true ? 'Posts-content-left-like-one-like' :
-                                'Posts-content-left-like-one-like like'
+                            className={isLike && isLike === true ? 'Posts-content-left-like-one-like like' :
+                                'Posts-content-left-like-one-like'
 
                             }
-                            onClick={() => { handleIsOpenLike() }}
+                            onClick={() => { handleIsOpenLike(!props.isLike) }}
                         >
                             <i class="far fa-thumbs-up"></i>
                             <span style={{ marginLeft: '5px' }}>like</span>

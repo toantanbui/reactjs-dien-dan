@@ -3,7 +3,8 @@ import actionTypes from "./actionTypes";
 import {
     handleGetDataLogin, handleGetDataSignup, handleGetDataLogout,
     handleGetDataOneUser, handleEditDataOneUser, handleCreateDataPosts,
-    handleGetDataOnePosts, handleCreateDataComment1, handleEditPostsData
+    handleGetDataOnePosts, handleCreateDataComment1, handleEditPostsData,
+    handleGetDataAllPosts, handleGetDataOnePostsById
 
 } from '../../services/userService'
 
@@ -215,6 +216,7 @@ export const handleCreateComment1 = (data1) => {
 
                 })
                 await dispatch(handleGetPosts({ id: data1.idUser }))
+                await dispatch(handleGetPostsById({ id: data1.idPosts }))
 
 
 
@@ -245,12 +247,64 @@ export const handleEditPosts = (data1) => {
 
                 })
                 await dispatch(handleGetPosts({ id: data1.idUser }))
+                await dispatch(handleGetPostsById({ id: data1.idPosts }))
 
 
 
 
             }
 
+
+
+        } catch (e) {
+            console.log(e)
+
+        }
+    }
+}
+
+export const handleGetAllPosts = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await handleGetDataAllPosts();
+
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.GET_ALL_POSTS,
+
+                    errMessage: res.errMessage,
+                    data: res.data
+
+
+                })
+
+            }
+
+
+
+        } catch (e) {
+            console.log(e)
+
+        }
+    }
+}
+
+export const handleGetPostsById = (data1) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await handleGetDataOnePostsById(data1);
+
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.GET_ONE_POSTS_BY_ID,
+
+                    errMessage: res.errMessage,
+                    data: res.data
+
+
+                })
+
+            }
 
 
         } catch (e) {

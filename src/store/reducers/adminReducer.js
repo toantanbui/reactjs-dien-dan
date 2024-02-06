@@ -7,7 +7,9 @@ const initialState = {
     errMessage: '',
     userInfo1: null,
     errMessagePosts: '',
-    postsInfo: null
+    postsInfo: null,
+    allPosts: null,
+    postsInfoById: null
 
 
 
@@ -62,6 +64,23 @@ const adminReducer = (state = initialState, action) => {
             }
         case actionTypes.GET_ONE_POSTS:
             state.postsInfo = action.data
+
+            console.log('action postsInfo ', action.data)
+
+            return {
+                ...state,
+            }
+
+        case actionTypes.GET_ALL_POSTS:
+            state.allPosts = action.data
+
+            console.log('action postsInfo ', action.data)
+
+            return {
+                ...state,
+            }
+        case actionTypes.GET_ONE_POSTS_BY_ID:
+            state.postsInfoById = action.data
 
             console.log('action postsInfo ', action.data)
 

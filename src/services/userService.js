@@ -37,12 +37,21 @@ const handleEditPostsData = (data) => {
     return axios.post('/api/edit-posts', data)
 }
 
+const handleGetDataAllPosts = () => {
+    return axios.get('/api/get-all-posts')
+}
+
+const handleGetDataOnePostsById = (data) => {
+    return axios.post('/api/get-posts-by-id', data)
+}
+
 
 
 
 export {
     handleGetDataLogin, handleGetDataSignup, handleGetDataLogout,
     handleGetDataOneUser, handleEditDataOneUser, handleCreateDataPosts,
-    handleGetDataOnePosts, handleCreateDataComment1, handleEditPostsData
+    handleGetDataOnePosts, handleCreateDataComment1, handleEditPostsData,
+    handleGetDataAllPosts, handleGetDataOnePostsById
 
 }

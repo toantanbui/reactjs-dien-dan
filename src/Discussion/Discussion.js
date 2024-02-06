@@ -7,12 +7,15 @@ import '../assets/css/Discussion/Discussion.css';
 import MenuLogged from '../MenuLogged/MenuLogged';
 import Footer from '../Footer/Footer';
 import TopicPreview from '../TopicPreview/TopicPreview';
+import { useSelector, useDispatch } from 'react-redux';
 // import InputFeedback from '../InputFeedback/InputFeedback';
 // import Feedback from '../Feedback/Feedback';
 import Comment from '../Comment/Comment';
+import { Buffer } from 'buffer';
 
-const Discussion = () => {
+const Discussion = (props) => {
     // const dispatch = useDispatch()
+    const dispatch = useDispatch()
     let [abc, setAbc] = useState([
         { name: 'Nguyen Van A', comment: 'Dùng trà xanh để trị răng ê buốt khi uống nước lạnh Cách khắc phục Dùng trà xanh để trị răng ê buốt khi uống nước lạnh Cách khắc phục tình trạng răng bị ê buốt khi uống nước lạnh tại nhà' },
         { name: 'Nguyen Van B', comment: 'Bài viết hay' },
@@ -33,13 +36,25 @@ const Discussion = () => {
 
     let [lastName, setlastName] = useState('')
     let [firstName, setfirstName] = useState('')
-    let [email, setemail] = useState('')
     let [avatar, setavatar] = useState('')
     let [postName, setpostName] = useState('')
     let [postContent, setpostContent] = useState('')
     let [like, setlike] = useState('')
+    let [isLike, setisLike] = useState('')
     let [comment, setcomment] = useState('')
     let [time, settime] = useState('')
+    let [idPosts, setidPosts] = useState('')
+    let [Comment1, setComment1] = useState([])
+
+
+
+
+    let [lastNameUser, setlastNameUser] = useState('')
+    let [firstNameUser, setfirstNameUser] = useState('')
+    let [avatarUser, setavatarUser] = useState('')
+    let [emailUser, setemailUser] = useState('')
+    let [idUser, setidUser] = useState('')
+    let [content, setcontent] = useState('')
 
 
 
@@ -68,9 +83,202 @@ const Discussion = () => {
 
 
 
-    const handleIsOpenLike = () => {
-        setIsOpenLike(!isOpenLike)
+
+    const handleIsOpenLike = async (data) => {
+        setisLike(data)
+
+
+
+        if (data === true) {
+            // setlike(like + 1)
+            dispatch(actions.handleEditPosts({
+                idPosts: idPosts,
+                like: like + 1,
+                idUser: idUser,
+                isLike: data
+
+            }))
+
+        } else {
+            // setlike(like - 1)
+            dispatch(actions.handleEditPosts({
+                idPosts: idPosts,
+                like: like - 1,
+                idUser: idUser,
+                isLike: data
+
+            }))
+
+        }
+
+        console.log('gia trị isOpenlike', isLike)
+
+
+
+
+
+
     }
+
+
+
+
+    let [postsInfo, setpostsInfo] = useState([])
+
+
+
+    let userInfoRedux = useSelector(state => state.admin.userInfo1)
+    let postsInfoRedux = useSelector(state => state.admin.postsInfoById)
+
+
+    let id1 = props.match.params.id
+    let abcd = localStorage.getItem('persist:user');
+    let id2 = JSON.parse(abcd).userInfo;
+    useEffect(async () => {
+
+        setidUser(id2)
+
+
+
+        await dispatch(actions.handleGetPostsById({ id: id1 }))
+
+        // await dispatch(actions.handleGetPosts({ id: id }))
+
+        if (postsInfoRedux !== null) {
+            setpostsInfo(postsInfoRedux)
+            console.log('postsInfo', postsInfo)
+            setpostContent(postsInfoRedux[0].postContent)
+            setpostName(postsInfoRedux[0].postName)
+            setlastName(postsInfoRedux[0].lastName)
+            setfirstName(postsInfoRedux[0].firstName)
+            setcomment(postsInfoRedux[0].comment)
+            setlike(postsInfoRedux[0].like)
+            setidPosts(postsInfoRedux[0]._id)
+            setisLike(postsInfoRedux[0].isLike)
+        }
+
+        if (userInfoRedux !== null) {
+            setlastNameUser(userInfoRedux.lastName)
+            setfirstNameUser(userInfoRedux.firstName)
+            setemailUser(userInfoRedux.email)
+            setidUser(id2)
+            console.log('Discussion la ', userInfoRedux)
+
+            let imageBase64 = '';
+
+            if (userInfoRedux.image) {
+
+                imageBase64 = new Buffer(userInfoRedux.image, 'base64').toString('binary')
+
+                if (imageBase64) {
+
+
+                    setavatarUser(imageBase64)
+
+                }
+            }
+        }
+
+
+
+
+
+
+    }, [])
+
+
+
+    useEffect(async () => {
+
+
+        if (postsInfoRedux !== null) {
+
+            setpostContent(postsInfoRedux[0].postContent)
+            setpostName(postsInfoRedux[0].postName)
+            setlastName(postsInfoRedux[0].lastName)
+            setfirstName(postsInfoRedux[0].firstName)
+            setcomment(postsInfoRedux[0].comment)
+            setlike(postsInfoRedux[0].like)
+            setComment1(postsInfoRedux[0].Comment1)
+            setidPosts(postsInfoRedux[0]._id)
+            setisLike(postsInfoRedux[0].isLike)
+
+
+
+            let imageBase64 = '';
+
+            if (postsInfoRedux[0].avatar) {
+
+                imageBase64 = new Buffer(postsInfoRedux[0].avatar, 'base64').toString('binary')
+
+                if (imageBase64) {
+
+
+                    setavatar(imageBase64)
+
+                }
+            }
+
+
+
+        }
+
+        if (userInfoRedux !== null) {
+            setlastNameUser(userInfoRedux.lastName)
+            setfirstNameUser(userInfoRedux.firstName)
+            setemailUser(userInfoRedux.email)
+            setidUser(id2)
+            console.log('Discussion la ', userInfoRedux)
+
+            let imageBase64 = '';
+
+            if (userInfoRedux.image) {
+
+                imageBase64 = new Buffer(userInfoRedux.image, 'base64').toString('binary')
+
+                if (imageBase64) {
+
+
+                    setavatarUser(imageBase64)
+
+                }
+            }
+
+
+
+
+        }
+
+
+        console.log('Discussion la ', userInfoRedux)
+
+
+
+    }, [userInfoRedux, postsInfoRedux])
+
+    const handleCreateCommentPosts = async () => {
+        console.log('da chay')
+        await dispatch(actions.handleCreateComment1({
+            idPosts: idPosts,
+            lastName: lastNameUser,
+            firstName: firstNameUser,
+            email: emailUser,
+            content: content,
+            avatar: avatarUser,
+            idUser: idUser
+
+        }))
+
+        setcontent('')
+    }
+
+    const onChangeInputContent = (event) => {
+        let event1 = event.target.value;
+        console.log('họ ', event1)
+
+        setcontent(event1)
+    }
+
 
 
 
@@ -84,35 +292,28 @@ const Discussion = () => {
             <div className='Discussion-content'>
                 <div className='Discussion-content-left'>
                     <div className='Discussion-content-left-name'>
-                        <div className='Discussion-content-left-name-image'></div>
-                        <div className='Discussion-content-left-name-name'>Nguyễn Văn A</div>
+                        <div className='Discussion-content-left-name-image'
+                            style={{ backgroundImage: `url(${avatar})`, backgroundSize: 'contain' }}
+                        ></div>
+                        <div className='Discussion-content-left-name-name'>{firstName} {lastName}</div>
                     </div>
                     <div className='Discussion-content-left-content'>
-                        Do biến chứng sau điều trị nha khoa
-                        Một số kỹ thuật điều trị nha khoa cần tác động đến răng miệng. Nếu bác sĩ không thực hiện đúng quy trình, cũng như không đảm bảo các yếu tố an toàn sẽ gây ảnh hưởng đến răng và các mô mềm bên trong khoang miệng. Điển hình như men răng bị bào mòn, lộ ngà răng. Điều đó không chỉ khiến răng nhạy cảm hơn mà còn làm sức khỏe răng miệng bị suy giảm nghiêm trọng. Đây cũng là một trong những nguyên nhân khiến răng bị ê buốt khi uống nước, ăn đồ lạnh.
+                        <div className='Discussion-content-left-content-title'>
 
-                        Cách khắc phục tình trạng răng bị ê buốt khi uống nước lạnh tại nhà
-                        Tình trạng răng bị ê buốt khi uống nước lạnh xảy ra khá phổ biến. Dưới đây là một số phương pháp khắc phục tình trạng này ngay tại nhà mà bạn có thể tham khảo:
+                            {postName}
+                        </div>
+                        <div dangerouslySetInnerHTML={{ __html: postContent }}>
 
-                        Dùng trà xanh để trị răng ê buốt khi uống nước lạnh
-                        Theo nhiều nghiên cứu, trong lá trà xanh chứa nhiều chất tốt cho sức khỏe răng miệng như catechin, axit tannic, florua,… Những chất này đều có tác dụng hỗ trợ hình thành lớp protein cứng. Axit tannic có trong trà cũng giúp ngăn ngừa tình trạng hòa tan canxi, giúp răng chắc khỏe hơn.
-                        Do biến chứng sau điều trị nha khoa
-                        Một số kỹ thuật điều trị nha khoa cần tác động đến răng miệng. Nếu bác sĩ không thực hiện đúng quy trình, cũng như không đảm bảo các yếu tố an toàn sẽ gây ảnh hưởng đến răng và các mô mềm bên trong khoang miệng. Điển hình như men răng bị bào mòn, lộ ngà răng. Điều đó không chỉ khiến răng nhạy cảm hơn mà còn làm sức khỏe răng miệng bị suy giảm nghiêm trọng. Đây cũng là một trong những nguyên nhân khiến răng bị ê buốt khi uống nước, ăn đồ lạnh.
-
-                        Cách khắc phục tình trạng răng bị ê buốt khi uống nước lạnh tại nhà
-                        Tình trạng răng bị ê buốt khi uống nước lạnh xảy ra khá phổ biến. Dưới đây là một số phương pháp khắc phục tình trạng này ngay tại nhà mà bạn có thể tham khảo:
-
-                        Dùng trà xanh để trị răng ê buốt khi uống nước lạnh
-                        Theo nhiều nghiên cứu, trong lá trà xanh chứa nhiều chất tốt cho sức khỏe răng miệng như catechin, axit tannic, florua,… Những chất này đều có tác dụng hỗ trợ hình thành lớp protein cứng. Axit tannic có trong trà cũng giúp ngăn ngừa tình trạng hòa tan canxi, giúp răng chắc khỏe hơn.
+                        </div>
                     </div>
                     <div className='Discussion-content-left-like'>
                         <div className='Discussion-content-left-like-one'>
                             <div
-                                className={isOpenLike && isOpenLike === true ? 'Discussion-content-left-like-one-like like' :
+                                className={isLike && isLike === true ? 'Discussion-content-left-like-one-like like' :
                                     'Discussion-content-left-like-one-like'
 
                                 }
-                                onClick={() => { handleIsOpenLike() }}
+                                onClick={() => { handleIsOpenLike(!isLike) }}
                             >
                                 <i class="far fa-thumbs-up"></i>
                                 <span style={{ marginLeft: '5px' }}>like</span>
@@ -128,20 +329,29 @@ const Discussion = () => {
                             </div>
                         </div>
                         <div className='Discussion-content-left-like-two'>
-                            <span>1 like</span>
-                            <span style={{ marginLeft: '10px' }}>1 comment</span>
+                            <span>{like} like</span>
+                            <span style={{ marginLeft: '10px' }}>{comment} comment</span>
                         </div>
                     </div>
                     <div className='Discussion-content-left-input'>
-                        <input type='text' placeholder='Comment' className='Discussion-content-left-input-input' />
-                        <i class="fas fa-paper-plane"></i>
+                        <input type='text' placeholder='Comment' className='Discussion-content-left-input-input'
+                            onChange={(event) => onChangeInputContent(event)}
+                            value={content}
+                        />
+                        <div
+                            onClick={() => { handleCreateCommentPosts() }}
+                        > <i class="fas fa-paper-plane"></i></div>
+
                     </div>
 
                     <div className='Discussion-content-left-comment-comment'>
                         {
-                            abc.map((item, index) => {
+                            Comment1 && Comment1.map((item, index) => {
                                 return (
-                                    <Comment key={index} name={item.name} comment={item.comment} />
+                                    <Comment key={index} lastName={item.lastName} firstName={item.firstName}
+                                        content={item.content} like={item.like} comment={item.comment}
+                                        avatar={item.avatar} createdAt={item.createdAt}
+                                    />
                                 )
 
                             })
