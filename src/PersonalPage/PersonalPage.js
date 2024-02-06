@@ -230,7 +230,7 @@ const PersonalPage = (props) => {
                                         like={item.like} comment={item.comment}
                                         avatar={item.avatar} postContent={item.postContent}
                                         postName={item.postName} time={item.time} idPosts={item._id}
-                                        Comment1={item.Comment1} idUser={item.idUser}
+                                        Comment1={item.Comment1} idUser={item.idUser} isLike={item.isLike}
                                         handleCreateComment1={handleCreateComment11}
                                         handleEditPostsLike={handleEditPostsLike}
 
@@ -240,7 +240,7 @@ const PersonalPage = (props) => {
                             })
                         }
 
-                        <Posts />
+
                     </div>
                 </div>
             </div>
