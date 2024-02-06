@@ -1,0 +1,33 @@
+.InputFeedback {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+  .InputFeedback .button {
+    display: flex;
+    justify-content: flex-end; }
+    .InputFeedback .button .button-cancel {
+      border-style: solid;
+      border-color: red;
+      border-width: 1px;
+      height: auto;
+      width: auto;
+      display: flex;
+      margin-right: 25px;
+      cursor: pointer; }
+      .InputFeedback .button .button-cancel:hover {
+        background-color: #e7e9eb; }
+      .InputFeedback .button .button-cancel:active {
+        background-color: #73787c; }
+    .InputFeedback .button .button-feeback {
+      border-style: solid;
+      border-color: red;
+      border-width: 1px;
+      height: auto;
+      width: auto;
+      display: flex;
+      cursor: pointer; }
+      .InputFeedback .button .button-feeback:hover {
+        background-color: #e7e9eb; }
+      .InputFeedback .button .button-feeback:active {
+        background-color: #73787c; }

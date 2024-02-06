@@ -1,0 +1,52 @@
+.InputFeedback {
+
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .button {
+        display: flex;
+        justify-content: flex-end;
+
+        .button-cancel {
+            border-style: solid;
+            border-color: red;
+            border-width: 1px;
+            height: auto;
+            width: auto;
+            display: flex;
+            margin-right: 25px;
+
+            cursor: pointer;
+
+            &:hover {
+                background-color: #e7e9eb;
+            }
+
+            &:active {
+                background-color: #73787c;
+            }
+        }
+
+        .button-feeback {
+            border-style: solid;
+            border-color: red;
+            border-width: 1px;
+            height: auto;
+            width: auto;
+            display: flex;
+
+            cursor: pointer;
+
+            &:hover {
+                background-color: #e7e9eb;
+            }
+
+            &:active {
+                background-color: #73787c;
+            }
+        }
+    }
+
+}

@@ -3,7 +3,12 @@ export const path = {
     MENU: '/menu',
     FOOTER: '/footer',
     MENULOGGED: '/menulogged',
-    POSTING: '/posting'
+    POSTING: '/posting/:id',
+    DISCUSSION: '/discussion/:id',
+    COMMENT: '/comment',
+    PERSONALPAGE: '/personalpage/:id',
+    POSTS: '/posts',
+    INFOR: '/infor/:id'
 
 
 }

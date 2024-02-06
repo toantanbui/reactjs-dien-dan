@@ -1,0 +1,71 @@
+.PersonalPage {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column; }
+  .PersonalPage .PersonalPage-header {
+    width: 100%;
+    height: auto;
+    display: flex; }
+  .PersonalPage .PersonalPage-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; }
+    .PersonalPage .PersonalPage-content .PersonalPage-content-header {
+      width: 100%;
+      height: 400px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 20px; }
+      .PersonalPage .PersonalPage-content .PersonalPage-content-header .PersonalPage-content-header-left {
+        width: auto;
+        height: auto;
+        display: flex; }
+        .PersonalPage .PersonalPage-content .PersonalPage-content-header .PersonalPage-content-header-left .PersonalPage-content-header-left-image {
+          width: 150px;
+          height: 150px;
+          display: flex;
+          border-radius: 90px; }
+        .PersonalPage .PersonalPage-content .PersonalPage-content-header .PersonalPage-content-header-left .PersonalPage-content-header-left-name {
+          width: auto;
+          height: 150px;
+          display: flex;
+          align-items: flex-end;
+          padding-bottom: 20px; }
+          .PersonalPage .PersonalPage-content .PersonalPage-content-header .PersonalPage-content-header-left .PersonalPage-content-header-left-name .PersonalPage-content-header-left-name-name {
+            width: auto;
+            height: auto;
+            display: flex;
+            font-size: 25px; }
+      .PersonalPage .PersonalPage-content .PersonalPage-content-header .PersonalPage-content-header-right {
+        border-style: solid;
+        border-color: red;
+        border-width: 1px;
+        width: 12%;
+        height: 20%;
+        display: flex; }
+    .PersonalPage .PersonalPage-content .PersonalPage-content-menu {
+      width: 100%;
+      height: 100px;
+      display: flex;
+      background-color: aliceblue; }
+    .PersonalPage .PersonalPage-content .PersonalPage-content-content {
+      width: 100%;
+      height: auto;
+      display: flex; }
+      .PersonalPage .PersonalPage-content .PersonalPage-content-content .PersonalPage-content-content-left {
+        width: 30%;
+        height: 800px;
+        display: flex;
+        background-color: aqua; }
+      .PersonalPage .PersonalPage-content .PersonalPage-content-content .PersonalPage-content-content-right {
+        width: 70%;
+        height: 800px;
+        overflow-y: scroll; }
+  .PersonalPage .PersonalPage-footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column; }

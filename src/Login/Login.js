@@ -9,12 +9,33 @@ import * as actions from '../store/actions';
 
 const Login = (props) => {
 
-    let [status, setstatus] = useState('')
-    let [statusImage, setstatusImage] = useState('')
-    let [id, setid] = useState('')
-    let [lastName, setlastName] = useState('')
-    let [firstName, setfirstName] = useState('')
+    const dispatch = useDispatch()
 
+    let [email, setemail] = useState('')
+    let [password, setpassword] = useState('')
+
+    const onChangeInputEmail = (event) => {
+        let event1 = event.target.value;
+        console.log('event1 là', event1)
+
+        setemail(event1)
+    }
+    const onChangeInputPasword = (event) => {
+        let event1 = event.target.value;
+        console.log('password là', event1)
+        setpassword(event1)
+
+    }
+
+    const handleLogin1 = () => {
+
+        dispatch(actions.handleLogin({
+            email: email,
+            password: password
+        }))
+    }
+
+    let errMessage = useSelector(state => state.user.errMessage)
 
 
 
@@ -41,13 +62,13 @@ const Login = (props) => {
                     <div className="form-group">
                         <label htmlFor="inputAddress">Email</label>
                         <input type="text" className="form-control" id="inputAddress2" placeholder="Email"
-
+                            onChange={(event) => onChangeInputEmail(event)}
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="inputAddress">Mật khẩu</label>
                         <input type="text" className="form-control" id="inputPassword" placeholder="Mật khẩu"
-
+                            onChange={(event) => onChangeInputPasword(event)}
                         />
                     </div>
 
@@ -62,11 +83,12 @@ const Login = (props) => {
             <ModalFooter>
                 <Button color="primary"
                     className="px-3"
-                >Đăng nhập</Button>{' '}
+                    onClick={() => handleLogin1()}
+                >Đăng nhập</Button>
                 <Button color="secodaray" className="px-3"
                     onClick={() => { props.toggle() }}>Cancel</Button>
                 <div style={{ color: 'red', fontWeight: '600' }}
-                ></div>
+                >{errMessage}</div>
             </ModalFooter>
         </Modal>
     );

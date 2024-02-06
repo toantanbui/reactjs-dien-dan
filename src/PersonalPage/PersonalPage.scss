@@ -1,0 +1,124 @@
+.PersonalPage {
+
+
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    .PersonalPage-header {
+
+        width: 100%;
+        height: auto;
+        display: flex;
+
+
+    }
+
+    .PersonalPage-content {
+
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .PersonalPage-content-header {
+
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding: 20px;
+
+            .PersonalPage-content-header-left {
+
+                width: auto;
+                height: auto;
+                display: flex;
+
+                .PersonalPage-content-header-left-image {
+
+                    width: 150px;
+                    height: 150px;
+                    display: flex;
+                    border-radius: 90px;
+
+                }
+
+                .PersonalPage-content-header-left-name {
+
+                    width: auto;
+                    height: 150px;
+                    display: flex;
+                    align-items: flex-end;
+                    padding-bottom: 20px;
+
+                    .PersonalPage-content-header-left-name-name {
+
+                        width: auto;
+                        height: auto;
+                        display: flex;
+                        font-size: 25px;
+                    }
+
+                }
+            }
+
+            .PersonalPage-content-header-right {
+                border-style: solid;
+                border-color: red;
+                border-width: 1px;
+                width: 12%;
+                height: 20%;
+                display: flex;
+            }
+
+        }
+
+        .PersonalPage-content-menu {
+
+            width: 100%;
+            height: 100px;
+            display: flex;
+            background-color: aliceblue;
+
+        }
+
+        .PersonalPage-content-content {
+
+            width: 100%;
+            height: auto;
+            display: flex;
+
+            .PersonalPage-content-content-left {
+
+                width: 30%;
+                height: 800px;
+                display: flex;
+                background-color: aqua;
+
+
+            }
+
+            .PersonalPage-content-content-right {
+
+                width: 70%;
+                height: 800px;
+
+                overflow-y: scroll;
+
+            }
+
+        }
+    }
+
+    .PersonalPage-footer {
+
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+}
