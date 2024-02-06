@@ -9,7 +9,8 @@ const initialState = {
     errMessagePosts: '',
     postsInfo: null,
     allPosts: null,
-    postsInfoById: null
+    postsInfoById: null,
+    allPostsLike: null,
 
 
 
@@ -81,6 +82,14 @@ const adminReducer = (state = initialState, action) => {
             }
         case actionTypes.GET_ONE_POSTS_BY_ID:
             state.postsInfoById = action.data
+
+            console.log('action postsInfo ', action.data)
+
+            return {
+                ...state,
+            }
+        case actionTypes.GET_ALL_POSTS_LIKE:
+            state.allPostsLike = action.data
 
             console.log('action postsInfo ', action.data)
 

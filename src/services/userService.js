@@ -45,6 +45,10 @@ const handleGetDataOnePostsById = (data) => {
     return axios.post('/api/get-posts-by-id', data)
 }
 
+const handleGetDataAllPostsLike = () => {
+    return axios.get('/api/get-posts-like')
+}
+
 
 
 
@@ -52,6 +56,6 @@ export {
     handleGetDataLogin, handleGetDataSignup, handleGetDataLogout,
     handleGetDataOneUser, handleEditDataOneUser, handleCreateDataPosts,
     handleGetDataOnePosts, handleCreateDataComment1, handleEditPostsData,
-    handleGetDataAllPosts, handleGetDataOnePostsById
+    handleGetDataAllPosts, handleGetDataOnePostsById, handleGetDataAllPostsLike
 
 }

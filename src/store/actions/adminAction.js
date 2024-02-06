@@ -4,7 +4,7 @@ import {
     handleGetDataLogin, handleGetDataSignup, handleGetDataLogout,
     handleGetDataOneUser, handleEditDataOneUser, handleCreateDataPosts,
     handleGetDataOnePosts, handleCreateDataComment1, handleEditPostsData,
-    handleGetDataAllPosts, handleGetDataOnePostsById
+    handleGetDataAllPosts, handleGetDataOnePostsById, handleGetDataAllPostsLike
 
 } from '../../services/userService'
 
@@ -279,7 +279,7 @@ export const handleGetAllPosts = () => {
                 })
 
             }
-
+            await dispatch(handleGetAllPostsLike({}))
 
 
         } catch (e) {
@@ -305,6 +305,32 @@ export const handleGetPostsById = (data1) => {
                 })
 
             }
+
+
+        } catch (e) {
+            console.log(e)
+
+        }
+    }
+}
+
+export const handleGetAllPostsLike = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await handleGetDataAllPostsLike();
+
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.GET_ALL_POSTS_LIKE,
+
+                    errMessage: res.errMessage,
+                    data: res.data
+
+
+                })
+
+            }
+
 
 
         } catch (e) {

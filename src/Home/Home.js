@@ -84,9 +84,11 @@ const Home = () => {
 
     let [isLoggedIn, setisLoggedIn] = useState(false)
     let [allPosts, setallPosts] = useState([])
+    let [allPostsLike, setallPostsLike] = useState([])
 
     let isLoggedInRedux = useSelector(state => state.user.isLoggedIn)
     let allPostsRedux = useSelector(state => state.admin.allPosts)
+    let allPostsLikeRedux = useSelector(state => state.admin.allPostsLike)
 
 
     useEffect(() => {
@@ -95,9 +97,13 @@ const Home = () => {
             setallPosts(allPostsRedux)
             console.log('Home update la ', allPostsRedux)
         }
+        if (allPostsLikeRedux !== null) {
+            setallPostsLike(allPostsLikeRedux)
+        }
         setisLoggedIn(isLoggedInRedux)
         // setallPosts(allPostsRedux)
         console.log('Home la ', allPostsRedux)
+        console.log('Home like la ', allPostsLikeRedux)
     }, [])
 
     useEffect(() => {
@@ -105,11 +111,14 @@ const Home = () => {
             setallPosts(allPostsRedux)
             console.log('Home update la ', allPostsRedux)
         }
+        if (allPostsLikeRedux !== null) {
+            setallPostsLike(allPostsLikeRedux)
+        }
 
         setisLoggedIn(isLoggedInRedux)
         //setallPosts(allPostsRedux)
 
-    }, [allPostsRedux, isLoggedInRedux])
+    }, [allPostsRedux, isLoggedInRedux, allPostsLikeRedux])
 
 
     const handleClickDiscussion = (data) => {
@@ -157,8 +166,10 @@ const Home = () => {
                         </div>
                         <div className="list-group">
                             {
-                                hotTopics.map((topic, index) => (
-                                    <TopicPreview key={index} title={topic.title} time={topic.createdAt} author={topic.author} previewContent={topic.previewContent} />
+                                allPostsLike.length > 0 && allPostsLike.map((topic, index) => (
+                                    <TopicPreview key={index} title={topic.postName} time={topic.time} author={topic.firstName} id={topic._id}
+                                        handleClickDiscussion={handleClickDiscussion}
+                                    />
                                 ))
                             }
                         </div>
