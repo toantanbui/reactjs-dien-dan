@@ -11,6 +11,8 @@ const initialState = {
     allPosts: null,
     postsInfoById: null,
     allPostsLike: null,
+    errMessageEditOneUser: '',
+    errMessageCreatePost: ''
 
 
 
@@ -96,6 +98,21 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state,
             }
+        case actionTypes.EDIT_ONE_USER:
+            state.errMessageEditOneUser = action.errMessage
+            console.log('action postsInfo ', action)
+
+            return {
+                ...state,
+            }
+
+        // case actionTypes.CREATE_ONE_POSTS:
+        //     state.errMessageCreatePost = action.errMessage
+        //     console.log('action postsInfo ', action)
+
+        //     return {
+        //         ...state,
+        //     }
 
 
 

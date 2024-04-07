@@ -22,6 +22,7 @@ const Infor = (props) => {
 
 
     let userInfoRedux = useSelector(state => state.admin.userInfo1)
+    let errEditOneUser = useSelector(state => state.admin.errMessageEditOneUser)
 
 
     let id1 = props.match.params.id
@@ -250,7 +251,7 @@ const Infor = (props) => {
             </div>
             <div className='Infor-content'>
                 <div className='Infor-content-title'>
-                    <span style={{ backgroundColor: 'yellow' }}>
+                    <span >
                         Thông tin cá nhân
                     </span>
                 </div>
@@ -313,7 +314,7 @@ const Infor = (props) => {
                                 />
                             </div>
                             <div style={{
-                                height: '100px', width: '100px', borderStyle: 'solid', borderColor: 'red',
+                                height: '100px', width: '100px', borderStyle: 'solid', borderColor: 'black',
                                 marginLeft: '50px', backgroundImage: `url(${avatar})`, backgroundSize: 'contain',
                                 cursor: 'pointer'
                             }}
@@ -334,7 +335,7 @@ const Infor = (props) => {
                                 />
                             </div>
                             <div style={{
-                                height: '100px', width: '100px', borderStyle: 'solid', borderColor: 'red',
+                                height: '100px', width: '100px', borderStyle: 'solid', borderColor: 'black',
                                 marginLeft: '50px', backgroundImage: `url(${background})`, backgroundSize: 'contain',
                                 cursor: 'pointer'
                             }}
@@ -367,8 +368,11 @@ const Infor = (props) => {
                 <div className='Infor-content-send'
                     onClick={() => { handleEditOneUser() }}
                 >
-                    <span style={{ backgroundColor: 'yellow', cursor: 'pointer' }}
-                    >chỉnh sửa</span>
+                    {/* <span style={{ backgroundColor: 'yellow', cursor: 'pointer' }}
+                    >update</span> */}
+                    <button type="button" className="btn btn-dark mr-3">Update</button>
+                    <span style={{ margin: '8px', color: 'red' }}>{errEditOneUser}</span>
+
                 </div>
 
             </div>

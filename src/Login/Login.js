@@ -61,7 +61,7 @@ const Login = (props) => {
 
                     <div className="form-group">
                         <label htmlFor="inputAddress">Email</label>
-                        <input type="text" className="form-control" id="inputAddress2" placeholder="Email"
+                        <input type="text" className="form-control" placeholder="Email"
                             onChange={(event) => onChangeInputEmail(event)}
                         />
                     </div>
