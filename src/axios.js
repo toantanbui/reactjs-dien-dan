@@ -5,10 +5,11 @@ import axios from 'axios';
 // import config from './config';
 
 const instance = axios.create({
-    baseURL: 'http://localhost:8080'
+    baseURL: 'https://dien-dan-nodejs-mongodb.onrender.com'
     //     withCredentials: true
     // process.env.REACT_APP_BACKEND_URL
 });
+//http://localhost:8080
 //https://dien-dan-nodejs-mongodb.onrender.com
 
 //Cho phép server lấy cookie

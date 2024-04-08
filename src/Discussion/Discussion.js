@@ -1,4 +1,5 @@
 // import React, { Component } from 'react';
+import { Audio } from 'react-loader-spinner'
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 
@@ -12,6 +13,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // import Feedback from '../Feedback/Feedback';
 import Comment from '../Comment/Comment';
 import { Buffer } from 'buffer';
+const _ = require('lodash');
 
 const Discussion = (props) => {
     // const dispatch = useDispatch()
@@ -192,6 +194,7 @@ const Discussion = (props) => {
 
 
         if (postsInfoRedux !== null) {
+            setpostsInfo(postsInfoRedux)
 
             setpostContent(postsInfoRedux[0].postContent)
             setpostName(postsInfoRedux[0].postName)
@@ -289,99 +292,107 @@ const Discussion = (props) => {
             <div className='Discussion-header'>
                 <MenuLogged />
             </div>
-            <div className='Discussion-content'>
-                <div className='Discussion-content-left'>
-                    <div className='Discussion-content-left-name'>
-                        <div className='Discussion-content-left-name-image'
-                            style={{ backgroundImage: `url(${avatar})`, backgroundSize: 'contain' }}
-                        ></div>
-                        <div className='Discussion-content-left-name-name'>{firstName} {lastName}</div>
-                    </div>
-                    <div className='Discussion-content-left-content'>
-                        <div className='Discussion-content-left-content-title'>
-
-                            {postName}
+            {
+                !_.isEmpty(postsInfo) ? <div className='Discussion-content'>
+                    <div className='Discussion-content-left'>
+                        <div className='Discussion-content-left-name'>
+                            <div className='Discussion-content-left-name-image'
+                                style={{ backgroundImage: `url(${avatar})`, backgroundSize: 'contain' }}
+                            ></div>
+                            <div className='Discussion-content-left-name-name'>{firstName} {lastName}</div>
                         </div>
-                        <div dangerouslySetInnerHTML={{ __html: postContent }}>
+                        <div className='Discussion-content-left-content'>
+                            <div className='Discussion-content-left-content-title'>
 
+                                {postName}
+                            </div>
+                            <div dangerouslySetInnerHTML={{ __html: postContent }}>
+
+                            </div>
                         </div>
-                    </div>
-                    <div className='Discussion-content-left-like'>
-                        <div className='Discussion-content-left-like-one'>
+                        <div className='Discussion-content-left-like'>
+                            <div className='Discussion-content-left-like-one'>
+                                <div
+                                    className={isLike && isLike === true ? 'Discussion-content-left-like-one-like like' :
+                                        'Discussion-content-left-like-one-like'
+
+                                    }
+                                    onClick={() => { handleIsOpenLike(!isLike) }}
+                                >
+                                    <i class="far fa-thumbs-up"></i>
+                                    <span style={{ marginLeft: '5px' }}>like</span>
+
+                                </div>
+                                <div className='Discussion-content-left-like-one-comment'>
+                                    <i class="far fa-comment"></i>
+                                    <span style={{ marginLeft: '5px' }}>comment</span>
+                                </div>
+                                <div className='Discussion-content-left-like-one-share'>
+                                    <i class="far fa-share-square"></i>
+                                    <span style={{ marginLeft: '5px' }}>share</span>
+                                </div>
+                            </div>
+                            <div className='Discussion-content-left-like-two'>
+                                <span>{like} like</span>
+                                <span style={{ marginLeft: '10px' }}>{comment} comment</span>
+                            </div>
+                        </div>
+                        <div className='Discussion-content-left-input'>
+                            <input type='text' placeholder='Comment' className='Discussion-content-left-input-input'
+                                onChange={(event) => onChangeInputContent(event)}
+                                value={content}
+                            />
                             <div
-                                className={isLike && isLike === true ? 'Discussion-content-left-like-one-like like' :
-                                    'Discussion-content-left-like-one-like'
+                                onClick={() => { handleCreateCommentPosts() }}
+                            > <i class="fas fa-paper-plane"></i></div>
 
-                                }
-                                onClick={() => { handleIsOpenLike(!isLike) }}
-                            >
-                                <i class="far fa-thumbs-up"></i>
-                                <span style={{ marginLeft: '5px' }}>like</span>
+                        </div>
 
-                            </div>
-                            <div className='Discussion-content-left-like-one-comment'>
-                                <i class="far fa-comment"></i>
-                                <span style={{ marginLeft: '5px' }}>comment</span>
-                            </div>
-                            <div className='Discussion-content-left-like-one-share'>
-                                <i class="far fa-share-square"></i>
-                                <span style={{ marginLeft: '5px' }}>share</span>
+                        <div className='Discussion-content-left-comment-comment'>
+                            {
+                                Comment1 && Comment1.map((item, index) => {
+                                    return (
+                                        <Comment key={index} lastName={item.lastName} firstName={item.firstName}
+                                            content={item.content} like={item.like} comment={item.comment}
+                                            avatar={item.avatar} createdAt={item.createdAt}
+                                        />
+                                    )
+
+                                })
+                            }
+
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                    <div className='Discussiion-content-right'>
+                        <div className="card">
+                            <div className="card-body">
+                                Bài viết khác
                             </div>
                         </div>
-                        <div className='Discussion-content-left-like-two'>
-                            <span>{like} like</span>
-                            <span style={{ marginLeft: '10px' }}>{comment} comment</span>
+                        <div className="list-group">
+                            {
+                                topics.map((topic, index) => (
+                                    <TopicPreview key={index} title={topic.title} time={topic.createdAt} author={topic.author} previewContent={topic.previewContent} />
+                                ))
+                            }
                         </div>
-                    </div>
-                    <div className='Discussion-content-left-input'>
-                        <input type='text' placeholder='Comment' className='Discussion-content-left-input-input'
-                            onChange={(event) => onChangeInputContent(event)}
-                            value={content}
-                        />
-                        <div
-                            onClick={() => { handleCreateCommentPosts() }}
-                        > <i class="fas fa-paper-plane"></i></div>
 
                     </div>
+                </div> : <Audio
+                    heigth="100"
+                    width="100"
+                    color='grey'
+                    ariaLabel='loading'
+                />
+            }
 
-                    <div className='Discussion-content-left-comment-comment'>
-                        {
-                            Comment1 && Comment1.map((item, index) => {
-                                return (
-                                    <Comment key={index} lastName={item.lastName} firstName={item.firstName}
-                                        content={item.content} like={item.like} comment={item.comment}
-                                        avatar={item.avatar} createdAt={item.createdAt}
-                                    />
-                                )
-
-                            })
-                        }
-
-
-                    </div>
-
-
-
-
-
-
-                </div>
-                <div className='Discussiion-content-right'>
-                    <div className="card">
-                        <div className="card-body">
-                            Bài viết khác
-                        </div>
-                    </div>
-                    <div className="list-group">
-                        {
-                            topics.map((topic, index) => (
-                                <TopicPreview key={index} title={topic.title} time={topic.createdAt} author={topic.author} previewContent={topic.previewContent} />
-                            ))
-                        }
-                    </div>
-
-                </div>
-            </div>
             <div className='Discussion-footer'>
                 <Footer />
             </div>

@@ -223,7 +223,7 @@ const PersonalPage = (props) => {
                 <div className='PersonalPage-content-content'>
                     <div className='PersonalPage-content-content-left'></div>
                     <div className='PersonalPage-content-content-right'>
-                        {postsInfo && postsInfo.length === true ?
+                        {postsInfo.length > 0 ?
                             postsInfo && postsInfo.length > 0 && postsInfo.map((item, index) => {
                                 return (
                                     <Posts key={index} firstName={item.firstName} lastName={item.lastName}
