@@ -34,8 +34,6 @@
           display: flex;
           border-radius: 30px; }
         .Discussion .Discussion-content .Discussion-content-left .Discussion-content-left-name .Discussion-content-left-name-name {
-          border-style: solid;
-          border-width: 1px;
           width: auto;
           height: auto;
           display: flex;

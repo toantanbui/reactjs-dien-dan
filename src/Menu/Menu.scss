@@ -96,6 +96,12 @@ $background-color_3: transparent;
 		.Menu-bottom {
 			flex-direction: column;
 			justify-content: flex-start;
+
+			.Menu-bottom-option {
+				margin: 10px;
+			}
+
+
 		}
 	}
 }
