@@ -77,3 +77,16 @@
     height: auto;
     display: flex;
     flex-direction: column; }
+
+@media (max-width: 768px) {
+  .PersonalPage .PersonalPage-content .PersonalPage-content-content .PersonalPage-content-content-left {
+    width: 0;
+    height: 800px;
+    display: flex;
+    background-color: #f0f2f5; }
+  .PersonalPage .PersonalPage-content .PersonalPage-content-content .PersonalPage-content-content-right {
+    width: 100%;
+    height: 800px;
+    overflow-y: scroll;
+    border-style: solid;
+    border-width: 1px; } }

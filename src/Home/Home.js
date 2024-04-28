@@ -156,20 +156,6 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="list-group">
-                            {
-                                latestTopics.map((topic, index) => (
-                                    <TopicPreview key={index} title={topic.title} time={topic.createdAt} author={topic.author} previewContent={topic.previewContent} />
-                                ))
-                            }
-                        </div>
-                    </div>
-                    <div className='Home-content-up-like'>
-                        <div className="card">
-                            <div className="card-body">
-                                Bài viết được yêu thích nhất
-                            </div>
-                        </div>
-                        <div className="list-group">
                             {!_.isEmpty(allPostsLike) ?
                                 allPostsLike.length > 0 && allPostsLike.map((topic, index) => (
                                     <TopicPreview key={index} title={topic.postName} time={topic.time} author={topic.firstName} id={topic._id}
@@ -182,6 +168,27 @@ const Home = () => {
                                     ariaLabel='loading'
                                 />
 
+                            }
+                        </div>
+                    </div>
+                    <div className='Home-content-up-like'>
+                        <div className="card">
+                            <div className="card-body">
+                                Bài viết được yêu thích nhất
+                            </div>
+                        </div>
+                        <div className="list-group">
+                            {!_.isEmpty(allPosts) ?
+                                allPosts.length > 0 && allPosts.map((topic, index) => (
+                                    <TopicPreview key={index} title={topic.postName} time={topic.time} author={topic.firstName} id={topic._id}
+                                        handleClickDiscussion={handleClickDiscussion}
+                                    />
+                                )) : <Audio
+                                    heigth="100"
+                                    width="100"
+                                    color='grey'
+                                    ariaLabel='loading'
+                                />
                             }
                         </div>
                     </div>

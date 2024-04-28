@@ -8,7 +8,8 @@ export const path = {
     COMMENT: '/comment',
     PERSONALPAGE: '/personalpage/:id',
     POSTS: '/posts',
-    INFOR: '/infor/:id'
+    INFOR: '/infor/:id',
+    SEARCHKEY: '/searchkey',
 
 
 }

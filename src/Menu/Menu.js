@@ -7,6 +7,7 @@ import '../assets/css/Menu/Menu.css';
 import Login from '../Login/Login';
 import logoHeader from '../assets/images/logo-header.png';
 import Signup from '../Signup/Signup';
+import { useHistory } from 'react-router-dom';
 
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -15,9 +16,12 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 const Menu = () => {
+    const dispatch = useDispatch()
+    const history = useHistory();
 
     let [isOpenLogin, setisOpenLogin] = useState(false)
     let [isOpenSignup, setisOpenSignup] = useState(false)
+    let [key, setkey] = useState('')
 
     const handleIsOpenLogin = () => {
         setisOpenLogin(true)
@@ -34,15 +38,46 @@ const Menu = () => {
     const handleToggleSignup = () => {
         setisOpenSignup(false)
     }
+
+    const handleSearchKey = async () => {
+        await dispatch(actions.handleSearchKey({
+            text: key
+
+        }))
+        history.push(`/searchkey`);
+    }
+
+    const onChangeInputKey = (event) => {
+        let event1 = event.target.value;
+        console.log('Gia trị là ', event)
+
+
+        setkey(event1)
+
+    }
+
+    const handleClickHome = () => {
+
+        history.push(`/`);
+    }
     return (
         <div className='Menu' >
             <div className='Menu-top'>
-                <a href='#'>
+                <a
+                    onClick={() => { handleClickHome() }}
+                >
                     <img className='Menu-top-icon' src={logoHeader} alt='TONY FORUM' />
                 </a>
                 <div className='Menu-top-search'>
-                    <input className="search-input" placeholder='Tìm kiếm' />
-                    <i className="fas fa-search search-icon"></i>
+                    <input className="search-input" placeholder='Tìm kiếm'
+                        onChange={(event) => onChangeInputKey(event)}
+                    />
+                    <div
+                        onClick={() => { handleSearchKey() }}
+                    >
+                        <i className="fas fa-search search-icon"></i>
+                    </div>
+
                 </div>
 
             </div>
@@ -58,7 +93,9 @@ const Menu = () => {
                         toggle={handleToggleSignup}
                     />
                     <button type="button" className="btn btn-light mr-3">Thảo luận</button>
-                    <button type="button" className="btn btn-light mr-3">Bài viết</button>
+                    <button type="button" className="btn btn-light mr-3"
+                        onClick={() => { handleClickHome() }}
+                    >Bài viết</button>
                     <button type="button" className="btn btn-light mr-3">Đăng bài</button>
                 </div>
                 <div className='Menu-bottom-dkdn'>

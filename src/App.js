@@ -19,6 +19,7 @@ import Comment from './Comment/Comment';
 import PersonalPage from './PersonalPage/PersonalPage';
 import Posts from './Posts/Posts';
 import Infor from './Infor/Infor';
+import SearchKey from './SearchKey/SearchKey';
 import { useSelector, useDispatch } from 'react-redux';
 const _ = require('lodash');
 
@@ -51,6 +52,7 @@ const App = () => {
           <Route path={path.PERSONALPAGE} component={(PersonalPage)} />
           <Route path={path.POSTS} component={(Posts)} />
           <Route path={path.INFOR} component={(Infor)} />
+          <Route path={path.SEARCHKEY} component={(SearchKey)} />
 
 
 

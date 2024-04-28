@@ -4,7 +4,8 @@ import {
     handleGetDataLogin, handleGetDataSignup, handleGetDataLogout,
     handleGetDataOneUser, handleEditDataOneUser, handleCreateDataPosts,
     handleGetDataOnePosts, handleCreateDataComment1, handleEditPostsData,
-    handleGetDataAllPosts, handleGetDataOnePostsById, handleGetDataAllPostsLike
+    handleGetDataAllPosts, handleGetDataOnePostsById, handleGetDataAllPostsLike,
+    handleSearchKeyAPI
 
 } from '../../services/userService'
 
@@ -331,6 +332,42 @@ export const handleGetAllPostsLike = () => {
 
             }
 
+
+
+        } catch (e) {
+            console.log(e)
+
+        }
+    }
+}
+
+
+export const handleSearchKey = (data1) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await handleSearchKeyAPI(data1);
+
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.SEARCH_KEY,
+
+                    errMessage: res.errMessage,
+                    data: res.data
+
+
+                })
+
+            } if (res && res.errCode === 3) {
+                dispatch({
+                    type: actionTypes.SEARCH_KEY,
+
+                    errMessage: res.errMessage,
+                    data: null
+
+
+                })
+
+            }
 
 
         } catch (e) {

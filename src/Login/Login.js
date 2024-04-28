@@ -33,6 +33,9 @@ const Login = (props) => {
             email: email,
             password: password
         }))
+
+        setemail('')
+        setpassword('')
     }
 
     let errMessage = useSelector(state => state.user.errMessage)

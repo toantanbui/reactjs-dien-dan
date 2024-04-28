@@ -370,7 +370,7 @@ const Discussion = (props) => {
 
 
                     </div>
-                    <div className='Discussiion-content-right'>
+                    {/* <div className='Discussiion-content-right'>
                         <div className="card">
                             <div className="card-body">
                                 Bài viết khác
@@ -384,7 +384,7 @@ const Discussion = (props) => {
                             }
                         </div>
 
-                    </div>
+                    </div> */}
                 </div> : <Audio
                     heigth="100"
                     width="100"
