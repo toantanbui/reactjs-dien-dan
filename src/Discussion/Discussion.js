@@ -146,40 +146,40 @@ const Discussion = (props) => {
 
         // await dispatch(actions.handleGetPosts({ id: id }))
 
-        if (postsInfoRedux !== null) {
-            setpostsInfo(postsInfoRedux)
-            console.log('postsInfo', postsInfo)
-            setpostContent(postsInfoRedux[0].postContent)
-            setpostName(postsInfoRedux[0].postName)
-            setlastName(postsInfoRedux[0].lastName)
-            setfirstName(postsInfoRedux[0].firstName)
-            setcomment(postsInfoRedux[0].comment)
-            setlike(postsInfoRedux[0].like)
-            setidPosts(postsInfoRedux[0]._id)
-            setisLike(postsInfoRedux[0].isLike)
-        }
+        // if (postsInfoRedux !== null) {
+        //     setpostsInfo(postsInfoRedux)
+        //     console.log('postsInfo', postsInfo)
+        //     setpostContent(postsInfoRedux[0].postContent)
+        //     setpostName(postsInfoRedux[0].postName)
+        //     setlastName(postsInfoRedux[0].lastName)
+        //     setfirstName(postsInfoRedux[0].firstName)
+        //     setcomment(postsInfoRedux[0].comment)
+        //     setlike(postsInfoRedux[0].like)
+        //     setidPosts(postsInfoRedux[0]._id)
+        //     setisLike(postsInfoRedux[0].isLike)
+        // }
 
-        if (userInfoRedux !== null) {
-            setlastNameUser(userInfoRedux.lastName)
-            setfirstNameUser(userInfoRedux.firstName)
-            setemailUser(userInfoRedux.email)
-            setidUser(id2)
-            console.log('Discussion la ', userInfoRedux)
+        // if (userInfoRedux !== null) {
+        //     setlastNameUser(userInfoRedux.lastName)
+        //     setfirstNameUser(userInfoRedux.firstName)
+        //     setemailUser(userInfoRedux.email)
+        //     setidUser(id2)
+        //     console.log('Discussion la ', userInfoRedux)
 
-            let imageBase64 = '';
+        //     let imageBase64 = '';
 
-            if (userInfoRedux.image) {
+        //     if (userInfoRedux.image) {
 
-                imageBase64 = new Buffer(userInfoRedux.image, 'base64').toString('binary')
+        //         imageBase64 = new Buffer(userInfoRedux.image, 'base64').toString('binary')
 
-                if (imageBase64) {
+        //         if (imageBase64) {
 
 
-                    setavatarUser(imageBase64)
+        //             setavatarUser(imageBase64)
 
-                }
-            }
-        }
+        //         }
+        //     }
+        // }
 
 
 
@@ -192,11 +192,11 @@ const Discussion = (props) => {
 
     useEffect(async () => {
 
-
+        //setpostContent(postsInfoRedux[0].postContent)
         if (postsInfoRedux !== null) {
             setpostsInfo(postsInfoRedux)
 
-            setpostContent(postsInfoRedux[0].postContent)
+            await setpostContent(postsInfoRedux[0].postContent)
             setpostName(postsInfoRedux[0].postName)
             setlastName(postsInfoRedux[0].lastName)
             setfirstName(postsInfoRedux[0].firstName)

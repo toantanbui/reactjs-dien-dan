@@ -159,7 +159,7 @@ const Home = () => {
                             {!_.isEmpty(allPostsLike) ?
                                 allPostsLike.length > 0 && allPostsLike.map((topic, index) => (
                                     <TopicPreview key={index} title={topic.postName} time={topic.time} author={topic.firstName} id={topic._id}
-                                        handleClickDiscussion={handleClickDiscussion}
+                                        handleClickDiscussion={handleClickDiscussion} lastName={topic.lastName}
                                     />
                                 )) : <Audio
                                     heigth="100"
@@ -181,7 +181,7 @@ const Home = () => {
                             {!_.isEmpty(allPosts) ?
                                 allPosts.length > 0 && allPosts.map((topic, index) => (
                                     <TopicPreview key={index} title={topic.postName} time={topic.time} author={topic.firstName} id={topic._id}
-                                        handleClickDiscussion={handleClickDiscussion}
+                                        handleClickDiscussion={handleClickDiscussion} lastName={topic.lastName}
                                     />
                                 )) : <Audio
                                     heigth="100"
@@ -204,7 +204,7 @@ const Home = () => {
                             {!_.isEmpty(allPosts) ?
                                 allPosts.length > 0 && allPosts.map((topic, index) => (
                                     <TopicPreview key={index} title={topic.postName} time={topic.time} author={topic.firstName} id={topic._id}
-                                        handleClickDiscussion={handleClickDiscussion}
+                                        handleClickDiscussion={handleClickDiscussion} lastName={topic.lastName}
                                     />
                                 )) : <Audio
                                     heigth="100"

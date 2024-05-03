@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 const TopicPreview = (props) => {
+    let date = new Date(props.time);
 
     const handleClick = () => {
         props.handleClickDiscussion(props.id)
@@ -19,9 +20,9 @@ const TopicPreview = (props) => {
     >
         <div className="d-flex w-100 justify-content-between">
             <h5 className="mb-1">{props.title}</h5>
-            <small className="text-muted">{props.time}</small>
+            <small className="text-muted">{date.toLocaleString()}</small>
         </div>
-        <p className="mb-1">{props.author}</p>
+        <p className="mb-1">{props.author} {props.lastName}</p>
         <small className="text-muted">{props.previewContent}...</small>
     </a>
     );
