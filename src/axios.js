@@ -9,6 +9,8 @@ const instance = axios.create({
     //     withCredentials: true
     // process.env.REACT_APP_BACKEND_URL
 });
+//http://localhost:8080
+//https://dien-dan-nodejs-mongodb.onrender.com
 
 //Cho phép server lấy cookie
 instance.defaults.withCredentials = true

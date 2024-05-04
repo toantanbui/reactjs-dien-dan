@@ -20,6 +20,7 @@ const MenuLogged = (props) => {
     let [userInfo, setuserInfo] = useState()
     let [userInfo2, setuserInfo2] = useState({})
     const history = useHistory();
+    let [key, setkey] = useState('')
 
 
 
@@ -74,6 +75,23 @@ const MenuLogged = (props) => {
         history.push(`/discussion/${id}`);
     }
 
+    const handleSearchKey = async () => {
+        await dispatch(actions.handleSearchKey({
+            text: key
+
+        }))
+        history.push(`/searchkey`);
+    }
+
+    const onChangeInputKey = (event) => {
+        let event1 = event.target.value;
+        console.log('Gia trị là ', event)
+
+
+        setkey(event1)
+
+    }
+
 
     return (
         <div className='Menu' >
@@ -83,8 +101,15 @@ const MenuLogged = (props) => {
                     <img className='Menu-top-icon' src={logoHeader} alt='TONY FORUM' />
                 </a>
                 <div className='Menu-top-search'>
-                    <input className="search-input" placeholder='Tìm kiếm' />
-                    <i className="fas fa-search search-icon"></i>
+                    <input className="search-input" placeholder='Tìm kiếm'
+                        onChange={(event) => onChangeInputKey(event)}
+                    />
+                    <div
+                        onClick={() => { handleSearchKey() }}
+                    >
+                        <i className="fas fa-search search-icon"></i>
+                    </div>
+
                 </div>
 
             </div>

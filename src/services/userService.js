@@ -49,6 +49,10 @@ const handleGetDataAllPostsLike = () => {
     return axios.get('/api/get-posts-like')
 }
 
+const handleSearchKeyAPI = (data) => {
+    return axios.post('/api/get-posts-text-search', data)
+}
+
 
 
 
@@ -56,6 +60,7 @@ export {
     handleGetDataLogin, handleGetDataSignup, handleGetDataLogout,
     handleGetDataOneUser, handleEditDataOneUser, handleCreateDataPosts,
     handleGetDataOnePosts, handleCreateDataComment1, handleEditPostsData,
-    handleGetDataAllPosts, handleGetDataOnePostsById, handleGetDataAllPostsLike
+    handleGetDataAllPosts, handleGetDataOnePostsById, handleGetDataAllPostsLike,
+    handleSearchKeyAPI
 
 }

@@ -1,4 +1,5 @@
 // import React, { Component } from 'react';
+import { Audio } from 'react-loader-spinner'
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 
@@ -11,6 +12,10 @@ import TopicPreview from '../TopicPreview/TopicPreview'
 import { useSelector, useDispatch } from 'react-redux';
 import MenuLogged from '../MenuLogged/MenuLogged';
 import { useHistory } from 'react-router-dom';
+const _ = require('lodash');
+
+
+
 
 
 
@@ -151,10 +156,18 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="list-group">
-                            {
-                                latestTopics.map((topic, index) => (
-                                    <TopicPreview key={index} title={topic.title} time={topic.createdAt} author={topic.author} previewContent={topic.previewContent} />
-                                ))
+                            {!_.isEmpty(allPostsLike) ?
+                                allPostsLike.length > 0 && allPostsLike.map((topic, index) => (
+                                    <TopicPreview key={index} title={topic.postName} time={topic.time} author={topic.firstName} id={topic._id}
+                                        handleClickDiscussion={handleClickDiscussion} lastName={topic.lastName}
+                                    />
+                                )) : <Audio
+                                    heigth="100"
+                                    width="100"
+                                    color='grey'
+                                    ariaLabel='loading'
+                                />
+
                             }
                         </div>
                     </div>
@@ -165,12 +178,17 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="list-group">
-                            {
-                                allPostsLike.length > 0 && allPostsLike.map((topic, index) => (
+                            {!_.isEmpty(allPosts) ?
+                                allPosts.length > 0 && allPosts.map((topic, index) => (
                                     <TopicPreview key={index} title={topic.postName} time={topic.time} author={topic.firstName} id={topic._id}
-                                        handleClickDiscussion={handleClickDiscussion}
+                                        handleClickDiscussion={handleClickDiscussion} lastName={topic.lastName}
                                     />
-                                ))
+                                )) : <Audio
+                                    heigth="100"
+                                    width="100"
+                                    color='grey'
+                                    ariaLabel='loading'
+                                />
                             }
                         </div>
                     </div>
@@ -183,12 +201,17 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="list-group">
-                            {
+                            {!_.isEmpty(allPosts) ?
                                 allPosts.length > 0 && allPosts.map((topic, index) => (
                                     <TopicPreview key={index} title={topic.postName} time={topic.time} author={topic.firstName} id={topic._id}
-                                        handleClickDiscussion={handleClickDiscussion}
+                                        handleClickDiscussion={handleClickDiscussion} lastName={topic.lastName}
                                     />
-                                ))
+                                )) : <Audio
+                                    heigth="100"
+                                    width="100"
+                                    color='grey'
+                                    ariaLabel='loading'
+                                />
                             }
                         </div>
                     </div>

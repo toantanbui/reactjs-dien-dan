@@ -32,6 +32,8 @@ const Posting = (props) => {
 
 
     let userInfoRedux = useSelector(state => state.admin.userInfo1)
+    let errCreatePost = useSelector(state => state.admin.errMessagePosts)
+
 
 
     let id1 = props.match.params.id
@@ -129,6 +131,7 @@ const Posting = (props) => {
 
     return (
         <div className='Posting'>
+            {console.log('loi tạo bai viet', errCreatePost)}
             <div className='Posting-header'>
                 <MenuLogged />
             </div>
@@ -158,7 +161,9 @@ const Posting = (props) => {
                         <button type="button" class="btn btn-warning"
                             onClick={() => { handleCreateOnePosts() }}
                         >Đăng bài</button>
+
                     </div>
+                    <span style={{ margin: '8px', color: 'red' }}> {errCreatePost}</span>
 
                 </div>
 

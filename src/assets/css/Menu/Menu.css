@@ -66,4 +66,9 @@
       margin-left: 20px; }
   .Menu .Menu-bottom {
     flex-direction: column;
-    justify-content: flex-start; } }
+    justify-content: flex-start; }
+    .Menu .Menu-bottom .Menu-bottom-option {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    .Menu .Menu-bottom .Menu-bottom-dkdn {
+      margin-bottom: 10px; } }

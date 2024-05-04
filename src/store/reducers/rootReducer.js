@@ -21,7 +21,7 @@ const userPersistConfig = {
     whitelist: ['isLoggedIn', 'userInfo', 'reduxToken']
 }
 
-
+//'isLoggedIn',
 
 
 export default (history) => combineReducers({//hàm tổng hợp các reducer con

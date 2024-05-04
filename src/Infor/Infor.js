@@ -1,3 +1,4 @@
+import { Audio } from 'react-loader-spinner'
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
@@ -10,6 +11,7 @@ import * as actions from '../store/actions';
 import '../assets/css/Infor/Infor.css';
 import MenuLogged from '../MenuLogged/MenuLogged';
 import Footer from '../Footer/Footer';
+const _ = require('lodash');
 
 
 
@@ -18,10 +20,12 @@ const Infor = (props) => {
 
     const dispatch = useDispatch()
     let [id, setid] = useState('')
+    let [mang, setmang] = useState([])
 
 
 
     let userInfoRedux = useSelector(state => state.admin.userInfo1)
+    let errEditOneUser = useSelector(state => state.admin.errMessageEditOneUser)
 
 
     let id1 = props.match.params.id
@@ -32,7 +36,7 @@ const Infor = (props) => {
             dispatch(actions.handleGetOneUser({ id: id }))
         }
 
-
+        setmang(userInfoRedux)
 
 
         console.log('gia trị id', id)
@@ -62,6 +66,7 @@ const Infor = (props) => {
             setaddress(userInfoRedux.address)
             setpassword(userInfoRedux.password)
             setphoneNumber(userInfoRedux.phonenumber)
+            setmang(userInfoRedux)
 
             let imageBase64 = '';
 
@@ -250,125 +255,136 @@ const Infor = (props) => {
             </div>
             <div className='Infor-content'>
                 <div className='Infor-content-title'>
-                    <span style={{ backgroundColor: 'yellow' }}>
+                    <span >
                         Thông tin cá nhân
                     </span>
                 </div>
                 <div className='Infor-content-content'>
+                    {
+                        !_.isEmpty(mang) ?
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputAddress">Họ</label>
+                                        <input type="text" class="form-control" placeholder="Họ"
+                                            onChange={(event) => onChangeInputLastName(event)}
+                                            value={lastName}
+                                        />
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputAddress2">Tên</label>
+                                        <input type="text" class="form-control" placeholder="Tên"
+                                            onChange={(event) => onChangeInputFirstName(event)}
+                                            value={firstName}
+                                        />
+                                    </div>
+                                </div>
 
-                    <form>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputAddress">Họ</label>
-                                <input type="text" class="form-control" placeholder="Họ"
-                                    onChange={(event) => onChangeInputLastName(event)}
-                                    value={lastName}
-                                />
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputAddress2">Tên</label>
-                                <input type="text" class="form-control" placeholder="Tên"
-                                    onChange={(event) => onChangeInputFirstName(event)}
-                                    value={firstName}
-                                />
-                            </div>
-                        </div>
+                                <div class="form-group">
+                                    <label for="inputEmail4">Email</label>
+                                    <input type="email" class="form-control" placeholder="Email"
+                                        onChange={(event) => onChangeInputEmail(event)}
+                                        value={email}
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword4">Số điện thoại</label>
+                                    <input type="text" class="form-control" placeholder="Số điện thoại"
+                                        onChange={(event) => onChangeInputPhoneNumber(event)}
+                                        value={phoneNumber}
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword4">Mật khẩu</label>
+                                    <input type="text" class="form-control" placeholder="Mật khẩu"
+                                        onChange={(event) => onChangeInputPassword(event)}
+                                        value={password}
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword4">Địa chỉ</label>
+                                    <input type="text" class="form-control" id="inputPassword4" placeholder="Địa chỉ"
+                                        onChange={(event) => onChangeInputAdress(event)}
+                                        value={address}
+                                    />
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputAddress">Ảnh đại diện</label>
+                                        <input type="file"
 
-                        <div class="form-group">
-                            <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" placeholder="Email"
-                                onChange={(event) => onChangeInputEmail(event)}
-                                value={email}
+                                            // value={image}
+                                            onChange={(event) => { onChangeInputImage(event) }}
+
+                                        />
+                                    </div>
+                                    <div style={{
+                                        height: '100px', width: '100px', borderStyle: 'solid', borderColor: 'black',
+                                        marginLeft: '50px', backgroundImage: `url(${avatar})`, backgroundSize: 'contain',
+                                        cursor: 'pointer'
+                                    }}
+
+                                        onClick={() => { handleOpenpreviewImage() }}
+                                    >
+
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputAddress">Ảnh nền</label>
+                                        <input type="file"
+
+
+                                            // value={image}
+                                            onChange={(event) => { onChangeInputbackground(event) }}
+                                        />
+                                    </div>
+                                    <div style={{
+                                        height: '100px', width: '100px', borderStyle: 'solid', borderColor: 'black',
+                                        marginLeft: '50px', backgroundImage: `url(${background})`, backgroundSize: 'contain',
+                                        cursor: 'pointer'
+                                    }}
+
+                                        onClick={() => { handleOpenpreviewBackground() }}
+                                    >
+
+                                    </div>
+
+                                </div>
+
+                                {isOpenpreviewImage === true &&
+                                    <Lightbox
+                                        mainSrc={avatar}
+                                        onCloseRequest={() => setisOpenpreviewImage(false)} />
+                                }
+                                {isOpenpreviewBackground === true &&
+                                    <Lightbox
+                                        mainSrc={background}
+                                        onCloseRequest={() => setisOpenpreviewBackground(false)} />
+                                }
+
+
+
+
+
+                            </form> : <Audio
+                                heigth="100"
+                                width="100"
+                                color='grey'
+                                ariaLabel='loading'
                             />
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword4">Số điện thoại</label>
-                            <input type="text" class="form-control" placeholder="Số điện thoại"
-                                onChange={(event) => onChangeInputPhoneNumber(event)}
-                                value={phoneNumber}
-                            />
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword4">Mật khẩu</label>
-                            <input type="text" class="form-control" placeholder="Mật khẩu"
-                                onChange={(event) => onChangeInputPassword(event)}
-                                value={password}
-                            />
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword4">Địa chỉ</label>
-                            <input type="text" class="form-control" id="inputPassword4" placeholder="Địa chỉ"
-                                onChange={(event) => onChangeInputAdress(event)}
-                                value={address}
-                            />
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputAddress">Ảnh đại diện</label>
-                                <input type="file"
+                    }
 
-                                    // value={image}
-                                    onChange={(event) => { onChangeInputImage(event) }}
-
-                                />
-                            </div>
-                            <div style={{
-                                height: '100px', width: '100px', borderStyle: 'solid', borderColor: 'red',
-                                marginLeft: '50px', backgroundImage: `url(${avatar})`, backgroundSize: 'contain',
-                                cursor: 'pointer'
-                            }}
-
-                                onClick={() => { handleOpenpreviewImage() }}
-                            >
-
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputAddress">Ảnh nền</label>
-                                <input type="file"
-
-
-                                    // value={image}
-                                    onChange={(event) => { onChangeInputbackground(event) }}
-                                />
-                            </div>
-                            <div style={{
-                                height: '100px', width: '100px', borderStyle: 'solid', borderColor: 'red',
-                                marginLeft: '50px', backgroundImage: `url(${background})`, backgroundSize: 'contain',
-                                cursor: 'pointer'
-                            }}
-
-                                onClick={() => { handleOpenpreviewBackground() }}
-                            >
-
-                            </div>
-
-                        </div>
-
-                        {isOpenpreviewImage === true &&
-                            <Lightbox
-                                mainSrc={avatar}
-                                onCloseRequest={() => setisOpenpreviewImage(false)} />
-                        }
-                        {isOpenpreviewBackground === true &&
-                            <Lightbox
-                                mainSrc={background}
-                                onCloseRequest={() => setisOpenpreviewBackground(false)} />
-                        }
-
-
-
-
-
-                    </form>
                 </div>
 
                 <div className='Infor-content-send'
                     onClick={() => { handleEditOneUser() }}
                 >
-                    <span style={{ backgroundColor: 'yellow', cursor: 'pointer' }}
-                    >chỉnh sửa</span>
+                    {/* <span style={{ backgroundColor: 'yellow', cursor: 'pointer' }}
+                    >update</span> */}
+                    <button type="button" className="btn btn-dark mr-3">Update</button>
+                    <span style={{ margin: '8px', color: 'red' }}>{errEditOneUser}</span>
+
                 </div>
 
             </div>

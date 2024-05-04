@@ -10,7 +10,6 @@
     flex-direction: column; }
   .Infor .Infor-content {
     border-style: solid;
-    border-color: red;
     border-width: 1px;
     width: 100%;
     height: auto;
@@ -19,29 +18,19 @@
     padding-left: 100px;
     padding-right: 100px; }
     .Infor .Infor-content .Infor-content-title {
-      border-style: solid;
-      border-color: red;
-      border-width: 1px;
       width: 100%;
       height: 100px;
       display: flex;
       align-items: center;
       font-size: 30px; }
     .Infor .Infor-content .Infor-content-content {
-      border-style: solid;
-      border-color: red;
-      border-width: 1px;
       width: 100%;
       height: auto; }
     .Infor .Infor-content .Infor-content-send {
-      border-style: solid;
-      border-color: red;
-      border-width: 1px;
       width: 100%;
       height: 100px;
       display: flex;
-      align-items: center;
-      justify-content: flex-end; }
+      align-items: center; }
   .Infor .Infor-footer {
     width: 100%;
     height: auto;

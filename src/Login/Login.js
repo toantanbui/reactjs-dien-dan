@@ -33,6 +33,9 @@ const Login = (props) => {
             email: email,
             password: password
         }))
+
+        setemail('')
+        setpassword('')
     }
 
     let errMessage = useSelector(state => state.user.errMessage)
@@ -61,7 +64,7 @@ const Login = (props) => {
 
                     <div className="form-group">
                         <label htmlFor="inputAddress">Email</label>
-                        <input type="text" className="form-control" id="inputAddress2" placeholder="Email"
+                        <input type="text" className="form-control" placeholder="Email"
                             onChange={(event) => onChangeInputEmail(event)}
                         />
                     </div>
